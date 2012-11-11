@@ -1,0 +1,49 @@
+program 
+
+var f : integer;
+var x : char;
+
+
+type re: record
+ x : boolean;
+ y : char;
+z : char;
+end record;
+
+type n : record
+ x : char;
+end record;
+
+procedure h;
+
+procedure p  
+var y : integer;
+begin
+y := 3;
+end;
+
+procedure m 
+var s : real;
+begin
+y := 3;
+end;
+
+procedure mar( w : char)  
+var y : boolean;
+begin
+y := 3;
+end;
+
+function ok (op : integer, lk : boolean) return char;
+function k (op : integer, lk : boolean) return char;
+
+begin 
+x := 3;
+while i < j loop
+begin
+i := i+1;
+end
+end loop;
+x := 8;
+end
+

@@ -1,0 +1,17 @@
+program 
+
+var f : integer;
+var x : char;
+
+
+
+
+begin 
+x := 3;
+while i < j loop
+begin
+i := i+1;
+end
+end loop;
+x := 8;
+end
