@@ -7,6 +7,15 @@
 lgnDeclaration tblDeclaration[MAX + MAXD];
 int i_debordement = MAX;
 
+void initTblDeclaration(){
+
+	tblDeclaration[0].execution = sizeof(int);
+	tblDeclaration[1].execution = sizeof(double);
+	tblDeclaration[2].execution = sizeof(char);
+	tblDeclaration[3].execution = sizeof(char);
+
+}
+
 void afficherTblDeclaration(){
 
 	int i;
@@ -61,7 +70,4 @@ int insererDeclaration( int numLexico,int nature,int region, int desciption,int 
 	}
 
 	return 0;
-}
-
-int getDescription(){
 }

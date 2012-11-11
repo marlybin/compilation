@@ -40,7 +40,7 @@ int counter = 0;
 %token SI ALORS SINON TANT_QUE FAIRE END_TANT_QUE
 %token LIRE ECRIRE  RETOURNE  VIDE 
 
-%type <ival> liste_param liste_parametres type_simple une_dimension dimension nom_type liste_dimensions liste_champs  un_champ   
+%type <ival> liste_param liste_parametres type_simple une_dimension dimension nom_type liste_dimensions liste_champs un_champ suite_declaration_variable
 %%
 
 programme : PROG  corps //{$2= NIS; Pile* p = vide(); p->info = $2; NIS++;}
@@ -68,13 +68,15 @@ declaration : declaration_type
 	    | declaration_fonction
 	    ;
 			
-declaration_type : TYPE IDF DEUX_POINTS suite_declaration_type	{ insererDeclaration( insererLexeme($2),TYPE_S,0,0,0 ); }
-		 ;
-		
-suite_declaration_type : STRUCT liste_champs FSTRUCT { ajoute_Struct($2, getBuf()); counter=0;buffer_clear();}
-		       | TABLEAU dimension DE nom_type	
-	{ajoute_Tab($2,$4, getBuf());
-	buffer_clear();}
+declaration_type : TYPE IDF DEUX_POINTS STRUCT liste_champs FSTRUCT { 
+					int execution = ??;
+					int description = ajoute_Struct($5, getBuf()); counter=0;buffer_clear();
+					insererDeclaration( insererLexeme($2),TYPE_S,0,description,execution );
+					}
+		       | TYPE IDF DEUX_POINTS TABLEAU dimension DE nom_type {
+					int description = ajoute_Tab($5,$7, getBuf());buffer_clear();
+					insererDeclaration( insererLexeme($2),TYPE_T,0,description,0 );
+					}
 		       ;
 						
 dimension : CROCHET_OUVRANT liste_dimensions CROCHET_FERMANT{$$=$2;}
@@ -102,26 +104,32 @@ type_simple	: ENTIER	{ $$ = 0; }
 		| REEL		{ $$ = 1; }
 		| BOOLEEN	{ $$ = 2; }
 		| CARACTERE	{ $$ = 3; }
-		|CHAINE CROCHET_OUVRANT CSTE_ENTIERE CROCHET_FERMANT	{ $$ = 0; }
+		| CHAINE CROCHET_OUVRANT CSTE_ENTIERE CROCHET_FERMANT	{ $$ = 0; }
 		;
 			
-declaration_variable : VARIABLE IDF DEUX_POINTS nom_type { insererDeclaration( insererLexeme($2),VAR,0,0,0 ); }
-		     | VARIABLE IDF VIRGULE suite_declaration_variable { insererDeclaration( insererLexeme($2),VAR,0,0,0 ); }
-		     ;	
-suite_declaration_variable	: IDF DEUX_POINTS nom_type {insererLexeme($1);}
-				| IDF VIRGULE suite_declaration_variable {insererLexeme($1);}
+declaration_variable : VARIABLE suite_declaration_variable
+		     ;
+
+suite_declaration_variable	: IDF DEUX_POINTS nom_type {
+							$$ = $3;
+							insererDeclaration( insererLexeme($1),VAR,0,$3,0 );
+							}
+				| IDF VIRGULE suite_declaration_variable {
+							$$ = $3;
+							insererDeclaration( insererLexeme($1),VAR,0,$3,0 );
+							}
 				;
 
-declaration_procedure : PROCEDURE IDF liste_parametres corps/*corp_proc*/ {insererLexeme($2);ajoute_Proc($3, getBuf());buffer_clear();}
+declaration_procedure : PROCEDURE IDF liste_parametres {
+							int description = ajoute_Proc($3, getBuf()); buffer_clear();
+							insererDeclaration( insererLexeme($2),PROC,0,description,0 ); 
+							} corps
 			;
-
-/*corp_proc ://corps
-	  | liste_parametres EST corps{ajoute_Proc($1, getBuf());buffer_clear();}
-	  | EST corps {ajoute_Proc(counter, getBuf());buffer_clear();}
-	  //|{ajoute_Proc(counter, getBuf());buffer_clear();}
-	  ;*/
 			
-declaration_fonction : FONCTION IDF liste_parametres RETOURNE type_simple { insererLexeme($2); ajoute_Func($5, $3,getBuf()); buffer_clear();} corps
+declaration_fonction : FONCTION IDF liste_parametres RETOURNE type_simple {
+							int description = ajoute_Func($5, $3,getBuf()); buffer_clear();
+							insererDeclaration( insererLexeme($2),FUNC,0,description,0 ); 
+							} corps
 			;
 		
 liste_parametres : PARENTHESE_OUVRANTE liste_param PARENTHESE_FERMANTE{$$=$2;}
@@ -273,6 +281,7 @@ expression_comp	: expression_arith INF expression_arith
 int main(int argc, char* argv[]){
 
 	initTblLexeme();
+	initTblDeclaration();
 	initTableRepType();
 	buffer_clear();
 	

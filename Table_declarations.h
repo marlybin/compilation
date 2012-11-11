@@ -1,5 +1,5 @@
-#ifndef DECLARATION
-#define DECLARATION
+#ifndef DECLARATION_H
+#define DECLARATION_H
 
 #define TYPE_B 1
 #define TYPE_T 2
@@ -20,12 +20,8 @@ typedef struct lgnDeclaration_s {
 	int execution;
 } lgnDeclaration;
 
-
+void initTblDeclaration();
 void afficherTblDeclaration();
 int insererDeclaration( int numLexico,int nature,int region, int desciption,int execution );
-int getNature();
-int getRegion();
-int getDescription();
-int getExetution();
 
 #endif
