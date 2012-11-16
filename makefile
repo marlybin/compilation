@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS= -Wall
 
-main : lex.yy.o y.tab.c Table_lexico.o Table_des_type.o buffer.o Pile_regions.o Table_declarations.o
+main : lex.yy.o y.tab.c TableLexico.o TableType.o buffer.o PileRegions.o TableDeclarations.o TableRegions.o Arbre.o 
 	$(CC) $(CFLAGS) -o projet $^ -ly -ll
 
 lex.yy.o : lex.yy.c y.tab.c
@@ -13,19 +13,26 @@ lex.yy.c :
 y.tab.c :
 	yacc -d -v projet.y
 
-Table_lexico.o : Table_lexico.c Table_lexico.h
+TableLexico.o : TableLexico.c TableLexico.h
 	$(CC) $(CFLAGS) -c $^
 
-Table_des_type.o: Table_des_type.h Table_des_type.c
+TableType.o: TableType.h TableType.c
 	$(CC) $(CFLAGS) -c $^
 
-Table_declarations.o : Table_declarations.c Table_declarations.h
+TableDeclarations.o : TableDeclarations.c TableDeclarations.h
 	$(CC) $(CFLAGS) -c $^
 
 buffer.o : buffer.c buffer.h
 	$(CC) $(CFLAGS) -c $^
 
-Pile_regions.o : Pile_regions.h Pile_regions.c
+TableRegions.o : TableRegions.h TableRegions.c
+	$(CC) $(CFLAGS) -c $^
+
+
+PileRegions.o : PileRegions.h PileRegions.c
+	$(CC) $(CFLAGS) -c $^
+
+Arbre.o : Arbre.h Arbre.c
 	$(CC) $(CFLAGS) -c $^
 
 # Nettoie, compile et exécute
@@ -39,7 +46,7 @@ exec :
 	@./projet < test.txt
 
 # Pour les tests
-test : test.c Table_declarations.c Table_declarations.h
+test : test.c TableDeclarations.c TableDeclarations.h TableRegions.h TableRegions.c Arbre.h Arbre.c
 	$(CC) $(CFLAGS) -o test $^
 
 clean :

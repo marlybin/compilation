@@ -1,13 +1,14 @@
 %{
 #include <stdio.h>
 #include <string.h>
-#include "Table_lexico.h"
-#include "Table_des_type.h"
+#include "TableLexico.h"
+#include "TableType.h"
 #include "buffer.h"
 
-
-#include "Pile_regions.h"
-#include "Table_declarations.h"
+#include "Arbre.h"
+#include "TableRegions.h"
+#include "PileRegions.h"
+#include "TableDeclarations.h"
 
 
 int yylex (void);
@@ -69,9 +70,9 @@ declaration : declaration_type
 	    ;
 			
 declaration_type : TYPE IDF DEUX_POINTS STRUCT liste_champs FSTRUCT { 
-					int execution = ??;
+					//int execution = ??;
 					int description = ajoute_Struct($5, getBuf()); counter=0;buffer_clear();
-					insererDeclaration( insererLexeme($2),TYPE_S,0,description,execution );
+					insererDeclaration( insererLexeme($2),TYPE_S,0,description,0);
 					}
 		       | TYPE IDF DEUX_POINTS TABLEAU dimension DE nom_type {
 					int description = ajoute_Tab($5,$7, getBuf());buffer_clear();
@@ -283,6 +284,7 @@ int main(int argc, char* argv[]){
 	initTblLexeme();
 	initTblDeclaration();
 	initTableRepType();
+	initRegions();
 	buffer_clear();
 	
 	yyparse(); // Lancement de lex/yacc
@@ -290,6 +292,7 @@ int main(int argc, char* argv[]){
 	afficheTableLexico();
 	afficher_Tbl_Type();
 	afficherTblDeclaration();
+	afficherTblRegions();
 
 	return 0;
 }
