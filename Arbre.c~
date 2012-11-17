@@ -1,133 +1,103 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "Arbre.h"
 
+noeud * creerNoeud_bis( int type, valeurNoeud valeur );
 
+/*
+ * Crée un nouveau noeud sans valeur
+ */
+noeud * creerNoeud( int type ){
 
-arbre *create_empty(){
-    arbre *tree = (arbre*)malloc(sizeof(arbre));
-    tree->frere = NULL;
-    tree->fils = NULL;
-    tree->att1 = 0;
-    tree->att2 = 0;
-    tree->type_N = 0;
-
-    return tree;
+	valeurNoeud val ;
+	val.entier = 0;
+	return creerNoeud_bis( type,val );
 }
 
-arbre *concat_pereFils(arbre *pere, arbre *fils){
-    if(pere == NULL){return fils;}
-    pere->fils = fils;
-    return pere;
+/*
+ * Crée un nouveau noeud qui a une valeur entière
+ */
+noeud * creerNoeud_i( int type, int valeur ){
+
+	valeurNoeud val ;
+	val.entier = valeur;
+	return creerNoeud_bis( type,val );
 }
 
-arbre *concat_pereFrere(arbre *pere, arbre *frere){
-    if(pere == NULL){return frere;}
-    if(pere->frere !=  NULL){pere->frere = concat_pereFils(create_NodeNull(N_LIST),concat_pereFrere(pere->frere,frere));}
-    else{pere->frere = frere;}
-    return pere;
+/*
+ * Crée un nouveau noeud qui a une valeur float
+ */
+noeud * creerNoeud_f( int type, float valeur ){
+
+	valeurNoeud val ;
+	val.reel = valeur;
+	return creerNoeud_bis( type,val );
 }
 
-arbre *create_NodeNull(int type_N){
-    arbre *tree = (arbre*)malloc(sizeof(arbre));
-    tree->type_N = type_N;
-    tree->att1 = 0;
-    tree->att2 = 0;
-    tree->fils = NULL;
-    tree->frere = NULL;
-    return tree;
+/*
+ * Crée un nouveau noeud avec son type et sa valeur
+ */
+noeud * creerNoeud_bis( int type, valeurNoeud valeur ){
+
+	noeud * noe = (noeud *) malloc( sizeof(arbre) );
+
+	noe->type = type;
+	noe->valeur = valeur;
+	noe->fils = NULL;
+	noe->frere = NULL;
+
+	return noe;
 }
 
-arbre *create_Node(int type_N, int att1){
-    arbre *tree = (arbre*)malloc(sizeof(arbre));
-    tree->type_N = type_N;
-    tree->att1 = att1;
-    tree->att2 = 0;
-    tree->fils = NULL;
-    tree->frere = NULL;
-    return tree;
+/*
+ * Ajoute un fils arg2 au noeud arg1
+ */
+void ajouterFils( noeud * origin, noeud * fils ){
+
+	origin->fils = fils;
 }
 
-arbre *create_Node2(int type_N, int att1, int att2){
-    arbre *tree = (arbre*)malloc(sizeof(arbre));
-    tree->type_N = type_N;
-    tree->att1 = att1;
-    tree->att2 = att2;
-    tree->fils = NULL;
-    tree->frere = NULL;
-    return tree;
+/*
+ * Ajoute un frere arg2 au noeud arg1
+ */
+void ajouterFrere( noeud * origin, noeud * frere ){
+
+	origin->frere = frere;
 }
 
+/*
+ * Affiche un arbre en ligne
+ */
+void afficherArbre( arbre * abr ){
 
+	printf("(");
+	while( abr != NULL ){
 
+		switch( abr->type ){
 
+			case T_CST_ENTIER :
+				printf(" CST-INT=%i ",abr->valeur.entier);
+			break;
 
-arbre *copy_tree(arbre *toCopy){
-    arbre *tree = (arbre*)malloc(sizeof(arbre));
-    tree->att1 = toCopy->att1;
-    tree->att2 = toCopy->att2;
-    tree->fils = toCopy->fils;
-    tree->frere = toCopy->frere;
-    return tree;
+			case T_CST_REEL :
+				printf(" CST-REEL=%f ",abr->valeur.reel);
+			break;
+
+			case T_AFFECT :
+				printf(" AFFECT ");
+			break;
+		}
+
+		if( abr->fils!=NULL ){
+			afficherArbre( abr->fils );
+		}
+
+		abr = abr->frere;
+		if( abr!=NULL ) printf(",");
+	}
+	printf(")");
 }
 
-
-int getTypeTree(arbre *tree){
-    return tree->type_N;
-}
-
-int getAtt1(arbre *tree){
-    return tree->att1;
-}
-
-int getAtt2(arbre *tree){
-    return tree->att2;
-}
-
-
-void display_tree(arbre *tree){
-    arbre *filsTemp = (arbre*)malloc(sizeof(arbre));
-    filsTemp = tree->fils;;
-    if ((tree->fils == NULL) && (tree->frere == NULL)) {
-        test : printf("(%d, NULL, NULL)", tree->type_N);
-    }
-
-    if ((tree->fils != NULL) || (tree->frere != NULL)) {
-        printf("(%d, ", tree->type_N);
-    }
-
-
-    if ((tree->fils == NULL) && (tree->frere == NULL)) {
-        //goto Fin;
-    }
-    else {
-        if(tree->fils==NULL)
-            {printf("(%d, NULL, NULL), ", 0/*tree->type_N*/);}
-        while(tree->fils != NULL){
-            display_tree(tree->fils);
-            tree->fils = NULL;
-            printf(", ");
-        }
-        tree->fils = filsTemp;
-        if(tree->frere==NULL)
-            {printf("(%d, NULL, NULL)", 0/*tree->type_N*/);}
-        while(tree->frere != NULL){
-            display_tree(tree->frere);
-            tree->frere = NULL;
-        }
-        tree->frere = filsTemp;
-    }
-
-    if(tree->frere == NULL) {
-        printf(")");
-        //goto Fin;
-    }
-
-    Fin : if (((tree->fils != NULL) || (tree->frere != NULL))) {
-        printf(")");
-    }
-
-
-}
 
 

@@ -284,6 +284,7 @@ int main(int argc, char* argv[]){
 	initTblLexeme();
 	initTblDeclaration();
 	initTableRepType();
+	initRegions();
 	buffer_clear();
 	
 	yyparse(); // Lancement de lex/yacc

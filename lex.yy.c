@@ -902,7 +902,7 @@ YY_RULE_SETUP
 case 12:
 YY_RULE_SETUP
 #line 25 "projet.l"
-{ return END_TANT_QUE;}
+{return END_TANT_QUE;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
@@ -952,32 +952,32 @@ YY_RULE_SETUP
 case 22:
 YY_RULE_SETUP
 #line 35 "projet.l"
-{ return ENTIER;}
+{return ENTIER;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
 #line 36 "projet.l"
-{ return REEL;}
+{return REEL;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 37 "projet.l"
-{ return BOOLEEN;}
+{return BOOLEEN;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
 #line 38 "projet.l"
-{ return CARACTERE;}
+{return CARACTERE;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 39 "projet.l"
-{ return CHAINE;}
+{return CHAINE;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 40 "projet.l"
-{ return EST;}
+{return EST;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
@@ -1112,22 +1112,22 @@ YY_RULE_SETUP
 case 54:
 YY_RULE_SETUP
 #line 75 "projet.l"
-{ return(FORMAT_ENTIER);}
+{return(FORMAT_ENTIER);}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
 #line 76 "projet.l"
-{ return(FORMAT_CARACTERE);}
+{return(FORMAT_CARACTERE);}
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
 #line 77 "projet.l"
-{ return(FORMAT_REELLE);}
+{return(FORMAT_REELLE);}
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
 #line 78 "projet.l"
-{ return(FORMAT_CHAINE);}
+{return(FORMAT_CHAINE);}
 	YY_BREAK
 case 58:
 YY_RULE_SETUP

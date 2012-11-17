@@ -46,7 +46,7 @@ exec :
 	@./projet < test.txt
 
 # Pour les tests
-test : test.c TableDeclarations.c TableDeclarations.h TableRegions.h TableRegions.c Arbre.h Arbre.c
+test : test.c Arbre.h Arbre.c
 	$(CC) $(CFLAGS) -o test $^
 
 clean :

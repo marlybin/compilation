@@ -7,8 +7,7 @@
 lignRegion TblRegions[MAXR];
 int compteur=0;
 
-void 30
-initRegions(){
+void initRegions(){
 	int i;
 	//compteur = (int)malloc(sizeof(int));
 	//compteur = 0;

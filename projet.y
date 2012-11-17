@@ -82,7 +82,7 @@ declaration_type : TYPE IDF DEUX_POINTS STRUCT liste_champs FSTRUCT {
 						
 dimension : CROCHET_OUVRANT liste_dimensions CROCHET_FERMANT{$$=$2;}
 	  ;
-			
+
 liste_dimensions : une_dimension	{$$=$1;}
 		 | liste_dimensions VIRGULE une_dimension	{$$=$1+1;}
 		 ;

@@ -22,7 +22,7 @@ then			{return ALORS;}
 else			{return SINON;}
 while			{return TANT_QUE;}
 loop			{return FAIRE;}
-"end loop"		{ return END_TANT_QUE;}
+"end loop"		{return END_TANT_QUE;}
 vide			{return VIDE;}
 "record"		{return STRUCT;}
 "end record"		{return FSTRUCT;}
@@ -32,12 +32,12 @@ of			{return DE;}
 var			{return VARIABLE;}
 write 			{return ECRIRE;}
 read 			{return LIRE;}
-"integer"		{ return ENTIER;}
-real			{ return REEL;}
-boolean 		{ return BOOLEEN;}
-char  	        	{ return CARACTERE;}
-string			{ return CHAINE;}
-is			{ return EST;}
+"integer"		{return ENTIER;}
+real			{return REEL;}
+boolean 		{return BOOLEEN;}
+char  	        	{return CARACTERE;}
+string			{return CHAINE;}
+is			{return EST;}
 
 \+			{return PLUS;}
 \-			{return MOINS;}
@@ -72,10 +72,10 @@ or			{return OU;}
 and			{return ET;}
 not			{return NON;}
 
-"%d"			{ return(FORMAT_ENTIER);}
-"%c"			{ return(FORMAT_CARACTERE);}
-"%f"			{ return(FORMAT_REELLE);}
-"%s"			{ return(FORMAT_CHAINE);}
+"%d"			{return(FORMAT_ENTIER);}
+"%c"			{return(FORMAT_CARACTERE);}
+"%f"			{return(FORMAT_REELLE);}
+"%s"			{return(FORMAT_CHAINE);}
 
 [a-zA-Z][a-zA-Z0-9]*		{
 					p = (char *) calloc( strlen(yytext)+1, sizeof(char));
@@ -90,7 +90,7 @@ not			{return NON;}
 [^\n\t ]			{yyerror("caractere interdit \n");}
 .				;			
 \n				{num_ligne++;}
-\/\*(.|\n)*\*\/                                 {;}
+\/\*(.|\n)*\*\/                 {;}
 
 
 
