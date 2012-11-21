@@ -2,6 +2,8 @@
 #include <stdlib.h>
 
 #include "Arbre.h"
+#include "TableLexico.h"
+
 
 noeud * creerNoeud_bis( int type, valeurNoeud valeur );
 
@@ -52,17 +54,19 @@ noeud * creerNoeud_bis( int type, valeurNoeud valeur ){
 /*
  * Ajoute un fils arg2 au noeud arg1
  */
-void ajouterFils( noeud * origin, noeud * fils ){
+noeud * ajouterFils( noeud * origin, noeud * fils ){
 
 	origin->fils = fils;
+	return origin;
 }
 
 /*
  * Ajoute un frere arg2 au noeud arg1
  */
-void ajouterFrere( noeud * origin, noeud * frere ){
+noeud * ajouterFrere( noeud * origin, noeud * frere ){
 
 	origin->frere = frere;
+	return origin;
 }
 
 /*
@@ -85,6 +89,18 @@ void afficherArbre( arbre * abr ){
 
 			case T_AFFECT :
 				printf(" AFFECT ");
+			break;
+
+			case T_VAR :
+				printf(" VAR[%s] ",tblLex[abr->valeur.entier].lexeme);
+			break;
+
+			case T_MULT :
+				printf(" MULT ");
+			break;
+
+			case T_DIV :
+				printf(" DIV ");
 			break;
 		}
 

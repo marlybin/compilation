@@ -208,15 +208,15 @@ MOINS (283) 90 97 98
 DIV (284) 93
 MULT (285) 92
 CSTE_ENTIERE (286) 19 29 97 99
-CSTE_CHAINE (287) 87 88
-CSTE_CHAR (288) 85
-CSTE_REEL (289) 98 100
-ENTIER (290) 25
-REEL (291) 26
-CARACTERE (292) 28
-CHAINE (293) 29 66
-BOOLEEN (294) 27
-IDF (295) 14 15 22 24 31 32 34 36 41 52 76 77
+IDF (287) 14 15 22 24 31 32 34 36 41 52 76 77
+CSTE_CHAINE (288) 87 88
+CSTE_CHAR (289) 85
+CSTE_REEL (290) 98 100
+ENTIER (291) 25
+REEL (292) 26
+CARACTERE (293) 28
+CHAINE (294) 29 66
+BOOLEEN (295) 27
 TABLEAU (296) 15
 DE (297) 15
 STRUCT (298) 14
@@ -536,8 +536,8 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     appel             aller à l'état 52
@@ -560,8 +560,8 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     appel             aller à l'état 52
@@ -598,10 +598,10 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
+    IDF                  décalage et aller à l'état 17
     CSTE_CHAINE          décalage et aller à l'état 64
     CSTE_CHAR            décalage et aller à l'état 65
     CSTE_REEL            décalage et aller à l'état 50
-    IDF                  décalage et aller à l'état 17
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     $défaut  réduction par utilisation de la règle 50 (resultat_retourne)
@@ -779,8 +779,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel             aller à l'état 52
@@ -801,10 +801,10 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
+    IDF                  décalage et aller à l'état 17
     CSTE_CHAINE          décalage et aller à l'état 64
     CSTE_CHAR            décalage et aller à l'état 65
     CSTE_REEL            décalage et aller à l'état 50
-    IDF                  décalage et aller à l'état 17
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     $défaut  réduction par utilisation de la règle 54 (liste_args)
@@ -846,8 +846,8 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     appel             aller à l'état 52
@@ -906,8 +906,8 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     appel             aller à l'état 52
@@ -1150,10 +1150,10 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
+    IDF                  décalage et aller à l'état 17
     CSTE_CHAINE          décalage et aller à l'état 64
     CSTE_CHAR            décalage et aller à l'état 65
     CSTE_REEL            décalage et aller à l'état 50
-    IDF                  décalage et aller à l'état 17
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     appel             aller à l'état 52
@@ -1199,12 +1199,12 @@ expression_comp (116)
 
    31 suite_declaration_variable: IDF DEUX_POINTS . nom_type
 
-    ENTIER     décalage et aller à l'état 119
-    REEL       décalage et aller à l'état 120
-    CARACTERE  décalage et aller à l'état 121
-    CHAINE     décalage et aller à l'état 122
-    BOOLEEN    décalage et aller à l'état 123
-    IDF        décalage et aller à l'état 124
+    IDF        décalage et aller à l'état 119
+    ENTIER     décalage et aller à l'état 120
+    REEL       décalage et aller à l'état 121
+    CARACTERE  décalage et aller à l'état 122
+    CHAINE     décalage et aller à l'état 123
+    BOOLEEN    décalage et aller à l'état 124
 
     nom_type     aller à l'état 125
     type_simple  aller à l'état 126
@@ -1261,8 +1261,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel             aller à l'état 52
@@ -1382,8 +1382,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel             aller à l'état 52
@@ -1399,8 +1399,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel             aller à l'état 52
@@ -1416,8 +1416,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel             aller à l'état 52
@@ -1433,8 +1433,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel             aller à l'état 52
@@ -1450,8 +1450,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel             aller à l'état 52
@@ -1467,8 +1467,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel     aller à l'état 52
@@ -1483,8 +1483,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel     aller à l'état 52
@@ -1499,8 +1499,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel     aller à l'état 52
@@ -1514,8 +1514,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel     aller à l'état 52
@@ -1532,8 +1532,8 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     appel             aller à l'état 52
@@ -1555,8 +1555,8 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     appel             aller à l'état 52
@@ -1690,55 +1690,55 @@ expression_comp (116)
 
    36 declaration_fonction: FONCTION IDF liste_parametres RETOURNE . type_simple $@2 corps
 
-    ENTIER     décalage et aller à l'état 119
-    REEL       décalage et aller à l'état 120
-    CARACTERE  décalage et aller à l'état 121
-    CHAINE     décalage et aller à l'état 122
-    BOOLEEN    décalage et aller à l'état 123
+    ENTIER     décalage et aller à l'état 120
+    REEL       décalage et aller à l'état 121
+    CARACTERE  décalage et aller à l'état 122
+    CHAINE     décalage et aller à l'état 123
+    BOOLEEN    décalage et aller à l'état 124
 
     type_simple  aller à l'état 164
 
 
 état 119
 
+   24 nom_type: IDF .
+
+    $défaut  réduction par utilisation de la règle 24 (nom_type)
+
+
+état 120
+
    25 type_simple: ENTIER .
 
     $défaut  réduction par utilisation de la règle 25 (type_simple)
 
 
-état 120
+état 121
 
    26 type_simple: REEL .
 
     $défaut  réduction par utilisation de la règle 26 (type_simple)
 
 
-état 121
+état 122
 
    28 type_simple: CARACTERE .
 
     $défaut  réduction par utilisation de la règle 28 (type_simple)
 
 
-état 122
+état 123
 
    29 type_simple: CHAINE . CROCHET_OUVRANT CSTE_ENTIERE CROCHET_FERMANT
 
     CROCHET_OUVRANT  décalage et aller à l'état 165
 
 
-état 123
+état 124
 
    27 type_simple: BOOLEEN .
 
     $défaut  réduction par utilisation de la règle 27 (type_simple)
-
-
-état 124
-
-   24 nom_type: IDF .
-
-    $défaut  réduction par utilisation de la règle 24 (nom_type)
 
 
 état 125
@@ -1798,8 +1798,8 @@ expression_comp (116)
 
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
-    CSTE_REEL            décalage et aller à l'état 50
     IDF                  décalage et aller à l'état 17
+    CSTE_REEL            décalage et aller à l'état 50
     PARENTHESE_OUVRANTE  décalage et aller à l'état 83
 
     appel             aller à l'état 52
@@ -1830,10 +1830,10 @@ expression_comp (116)
     FAUX                 décalage et aller à l'état 47
     MOINS                décalage et aller à l'état 48
     CSTE_ENTIERE         décalage et aller à l'état 49
+    IDF                  décalage et aller à l'état 17
     CSTE_CHAINE          décalage et aller à l'état 64
     CSTE_CHAR            décalage et aller à l'état 65
     CSTE_REEL            décalage et aller à l'état 50
-    IDF                  décalage et aller à l'état 17
     PARENTHESE_OUVRANTE  décalage et aller à l'état 51
 
     appel             aller à l'état 52
@@ -2094,11 +2094,11 @@ expression_comp (116)
 
    41 un_param: IDF DEUX_POINTS . type_simple
 
-    ENTIER     décalage et aller à l'état 119
-    REEL       décalage et aller à l'état 120
-    CARACTERE  décalage et aller à l'état 121
-    CHAINE     décalage et aller à l'état 122
-    BOOLEEN    décalage et aller à l'état 123
+    ENTIER     décalage et aller à l'état 120
+    REEL       décalage et aller à l'état 121
+    CARACTERE  décalage et aller à l'état 122
+    CHAINE     décalage et aller à l'état 123
+    BOOLEEN    décalage et aller à l'état 124
 
     type_simple  aller à l'état 180
 
@@ -2320,12 +2320,12 @@ expression_comp (116)
 
    15 declaration_type: TYPE IDF DEUX_POINTS TABLEAU dimension DE . nom_type
 
-    ENTIER     décalage et aller à l'état 119
-    REEL       décalage et aller à l'état 120
-    CARACTERE  décalage et aller à l'état 121
-    CHAINE     décalage et aller à l'état 122
-    BOOLEEN    décalage et aller à l'état 123
-    IDF        décalage et aller à l'état 124
+    IDF        décalage et aller à l'état 119
+    ENTIER     décalage et aller à l'état 120
+    REEL       décalage et aller à l'état 121
+    CARACTERE  décalage et aller à l'état 122
+    CHAINE     décalage et aller à l'état 123
+    BOOLEEN    décalage et aller à l'état 124
 
     nom_type     aller à l'état 199
     type_simple  aller à l'état 126
@@ -2335,12 +2335,12 @@ expression_comp (116)
 
    22 un_champ: IDF DEUX_POINTS . nom_type
 
-    ENTIER     décalage et aller à l'état 119
-    REEL       décalage et aller à l'état 120
-    CARACTERE  décalage et aller à l'état 121
-    CHAINE     décalage et aller à l'état 122
-    BOOLEEN    décalage et aller à l'état 123
-    IDF        décalage et aller à l'état 124
+    IDF        décalage et aller à l'état 119
+    ENTIER     décalage et aller à l'état 120
+    REEL       décalage et aller à l'état 121
+    CARACTERE  décalage et aller à l'état 122
+    CHAINE     décalage et aller à l'état 123
+    BOOLEEN    décalage et aller à l'état 124
 
     nom_type     aller à l'état 200
     type_simple  aller à l'état 126

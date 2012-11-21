@@ -45,7 +45,7 @@ void afficherTblRegions(){
 	printf("-------------------------\n");
 	for(i=0; i<MAXR; i++){
 	printf("|  %d   ||   %d   | ", TblRegions[i].taille, TblRegions[i].NIS);
-	display_tree(TblRegions[i].tree);
+	//display_tree(TblRegions[i].tree);
 	printf("\n");
 
     }

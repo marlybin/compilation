@@ -66,15 +66,15 @@
      DIV = 284,
      MULT = 285,
      CSTE_ENTIERE = 286,
-     CSTE_CHAINE = 287,
-     CSTE_CHAR = 288,
-     CSTE_REEL = 289,
-     ENTIER = 290,
-     REEL = 291,
-     CARACTERE = 292,
-     CHAINE = 293,
-     BOOLEEN = 294,
-     IDF = 295,
+     IDF = 287,
+     CSTE_CHAINE = 288,
+     CSTE_CHAR = 289,
+     CSTE_REEL = 290,
+     ENTIER = 291,
+     REEL = 292,
+     CARACTERE = 293,
+     CHAINE = 294,
+     BOOLEEN = 295,
      TABLEAU = 296,
      DE = 297,
      STRUCT = 298,
@@ -131,15 +131,15 @@
 #define DIV 284
 #define MULT 285
 #define CSTE_ENTIERE 286
-#define CSTE_CHAINE 287
-#define CSTE_CHAR 288
-#define CSTE_REEL 289
-#define ENTIER 290
-#define REEL 291
-#define CARACTERE 292
-#define CHAINE 293
-#define BOOLEEN 294
-#define IDF 295
+#define IDF 287
+#define CSTE_CHAINE 288
+#define CSTE_CHAR 289
+#define CSTE_REEL 290
+#define ENTIER 291
+#define REEL 292
+#define CARACTERE 293
+#define CHAINE 294
+#define BOOLEEN 295
 #define TABLEAU 296
 #define DE 297
 #define STRUCT 298
@@ -173,8 +173,8 @@ typedef union YYSTYPE
 {
 
 /* Line 2068 of yacc.c  */
-#line 23 "projet.y"
- double dval; int ival; char * sval; char cval; 
+#line 24 "projet.y"
+ double dval; int ival; char * sval; char cval; struct noeud * noeudval; 
 
 
 /* Line 2068 of yacc.c  */

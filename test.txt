@@ -9,6 +9,7 @@ procedure p
 var y : integer;
 begin
 y := 3;
+x := 3*2;
 end;
 
 function ok (op : integer, lk : boolean) return char;
@@ -38,4 +39,3 @@ begin
 	end loop;
 	x := 8;
 end
-

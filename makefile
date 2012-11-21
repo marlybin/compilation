@@ -1,6 +1,10 @@
 CC=gcc
 CFLAGS= -Wall
 
+# Nettoie, compile et exécute
+all : clean main clear exec
+
+
 main : lex.yy.o y.tab.c TableLexico.o TableType.o buffer.o PileRegions.o TableDeclarations.o TableRegions.o Arbre.o 
 	$(CC) $(CFLAGS) -o projet $^ -ly -ll
 
@@ -34,9 +38,6 @@ PileRegions.o : PileRegions.h PileRegions.c
 
 Arbre.o : Arbre.h Arbre.c
 	$(CC) $(CFLAGS) -c $^
-
-# Nettoie, compile et exécute
-all : clean main clear exec
 
 clear :
 	clear
