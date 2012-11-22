@@ -14,6 +14,27 @@
 #define T_MULT 9
 #define T_DIV 10
 #define T_CHAINE 11
+#define T_PLUS 12
+#define T_MOINS 13
+#define T_APPEL 14
+#define T_CONCAT 15
+#define T_CHAR 16
+
+#define T_INF 17
+#define T_INF_EGAL 18
+#define T_SUP 19
+#define T_SUP_EGAL 20
+#define T_EGAL 21
+
+#define T_VIDE 22
+
+#define T_SI 23
+#define T_TANTQUE 24
+
+#define T_LIRE 25
+#define T_ECRIRE 26
+#define T_RETOURNE 27
+
 
 /*
  * Déclaration des structures
@@ -23,6 +44,8 @@ typedef union valeurNoeud{
 
 	int entier;
 	double reel;
+	char * string;
+	char caractere;
 }valeurNoeud;
 
 typedef struct noeud noeud;
@@ -46,6 +69,9 @@ noeud * ajouterFrere( noeud * origin, noeud * frere );
 noeud * creerNoeud( int type );
 noeud * creerNoeud_i( int type, int valeur );
 noeud * creerNoeud_f( int type, float valeur );
+noeud * creerNoeud_s( int type, char * valeur );
+noeud * creerNoeud_c( int type, char valeur );
+
 
 void afficherArbre( arbre * abr);
 

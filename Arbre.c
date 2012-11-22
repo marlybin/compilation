@@ -37,6 +37,27 @@ noeud * creerNoeud_f( int type, float valeur ){
 }
 
 /*
+ * Crée un nouveau noeud qui a une valeur char *
+ */
+noeud * creerNoeud_s( int type, char * valeur ){
+
+	valeurNoeud val ;
+	val.string = valeur;
+	return creerNoeud_bis( type,val );
+
+}
+
+/*
+ * Crée un nouveau noeud qui a une valeur char *
+ */
+noeud * creerNoeud_c( int type, char valeur ){
+
+	valeurNoeud val ;
+	val.caractere = valeur;
+	return creerNoeud_bis( type,val );
+}
+
+/*
  * Crée un nouveau noeud avec son type et sa valeur
  */
 noeud * creerNoeud_bis( int type, valeurNoeud valeur ){
@@ -102,6 +123,59 @@ void afficherArbre( arbre * abr ){
 			case T_DIV :
 				printf(" DIV ");
 			break;
+
+			case T_PLUS :
+				printf(" PLUS ");
+			break;
+
+			case T_MOINS :
+				printf(" MOINS ");
+			break;
+
+			case T_APPEL :
+				printf(" APPEL [%s]",tblLex[abr->valeur.entier].lexeme);
+			break;
+
+			case T_CONCAT :
+				printf(" CONCAT ");
+			break;
+
+			case T_CHAINE :
+				printf(" CHAINE [%s]",abr->valeur.string);
+			break;
+
+			case T_TANTQUE :
+				printf(" TANTQUE ");
+			break;
+
+			case T_AND :
+				printf(" AND ");
+			break;
+
+			case T_OR :
+				printf(" OR ");
+			break;
+
+			case T_SUP :
+				printf(" > ");
+			break;
+
+			case T_INF :
+				printf(" < ");
+			break;
+
+			case T_SUP_EGAL:
+				printf(" >= ");
+			break;
+
+			case T_INF_EGAL :
+				printf(" <= ");
+			break;
+
+			case T_SI :
+				printf(" SI ");
+			break;
+
 		}
 
 		if( abr->fils!=NULL ){

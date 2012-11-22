@@ -12,18 +12,19 @@ char * p;
 
 %%
 
-program			{return PROG;}
-begin			{return DEBUT;}
-end				{return FIN;}
-function		{return FONCTION;}
-procedure		{return PROCEDURE;}
-return 			{return RETOURNE;}
-if				{return SI;}
-then			{return ALORS;}
-else			{return SINON;}
-while			{return TANT_QUE;}
-loop			{return FAIRE;}
+"program"		{return PROG;}
+"begin"			{return DEBUT;}
+"end"			{return FIN;}
+"function"		{return FONCTION;}
+"procedure"		{return PROCEDURE;}
+"return" 		{return RETOURNE;}
+"if"			{return SI;}
+"then"			{return ALORS;}
+"else"			{return SINON;}
+"endif"			{return FINSI;}
+"while"			{return TANT_QUE;}
 "end loop"		{return END_TANT_QUE;}
+"loop"			{return FAIRE;}
 vide			{return VIDE;}
 "record"		{return STRUCT;}
 "end record"	{return FSTRUCT;}
@@ -31,8 +32,6 @@ array			{return TABLEAU;}
 of				{return DE;}
 "type"			{return TYPE;}
 var				{return VARIABLE;}
-write 			{return ECRIRE;}
-read 			{return LIRE;}
 "integer"		{return ENTIER;}
 real			{return REEL;}
 boolean 		{return BOOLEEN;}
@@ -82,10 +81,14 @@ not				{return NON;}
 					yylval.ival = insererLexeme(yytext);
 					return IDF;
 				}
-0|[1-9][0-9]*\.[0-9]+		{yylval.dval= atof(yytext);return CSTE_REEL;}
-\'[a-zA-Z0-9]\'			{yylval.cval= atoi(yytext);return CSTE_CHAR; }
 0|[1-9][0-9]*			{yylval.ival= atoi(yytext);return CSTE_ENTIERE;}
-\"[^"]*\"			{return CSTE_CHAINE;}
+0|[1-9][0-9]*\.[0-9]+	{yylval.dval= atof(yytext);return CSTE_REEL;}
+\'[a-zA-Z0-9]\'			{yylval.cval= atoi(yytext);return CSTE_CHAR; }
+\"[^"]*\"			{
+						yylval.sval = (char *) malloc( sizeof( yytext ) );
+						strcpy( yylval.sval, yytext );
+						return CSTE_CHAINE;
+					}
 [^\n\t ]			{yyerror("caractere interdit \n");}
 .				;			
 \n				{num_ligne++;}

@@ -40,130 +40,128 @@
      PROG = 258,
      DEBUT = 259,
      FIN = 260,
-     PROCEDURE = 261,
-     FONCTION = 262,
-     EST = 263,
-     ET = 264,
-     OU = 265,
-     NON = 266,
-     VRAI = 267,
-     FAUX = 268,
-     OPAFF = 269,
-     INF = 270,
-     INF_EGAL = 271,
-     SUP = 272,
-     SUP_EGAL = 273,
-     EGAL = 274,
-     DIFF = 275,
-     POINT_VIRGULE = 276,
-     DEUX_POINTS = 277,
-     POINT = 278,
-     VIRGULE = 279,
-     GUILLEMET = 280,
-     POINT_POINT = 281,
-     PLUS = 282,
-     MOINS = 283,
-     DIV = 284,
-     MULT = 285,
-     CSTE_ENTIERE = 286,
-     IDF = 287,
-     CSTE_CHAINE = 288,
-     CSTE_CHAR = 289,
-     CSTE_REEL = 290,
-     ENTIER = 291,
-     REEL = 292,
-     CARACTERE = 293,
-     CHAINE = 294,
-     BOOLEEN = 295,
-     TABLEAU = 296,
-     DE = 297,
-     STRUCT = 298,
-     FSTRUCT = 299,
-     VARIABLE = 300,
-     TYPE = 301,
-     FORMAT_ENTIER = 302,
-     FORMAT_REELLE = 303,
-     FORMAT_CARACTERE = 304,
-     FORMAT_CHAINE = 305,
-     CROCHET_OUVRANT = 306,
-     CROCHET_FERMANT = 307,
-     PARENTHESE_OUVRANTE = 308,
-     PARENTHESE_FERMANTE = 309,
-     SI = 310,
-     ALORS = 311,
-     SINON = 312,
-     TANT_QUE = 313,
-     FAIRE = 314,
-     END_TANT_QUE = 315,
-     LIRE = 316,
-     ECRIRE = 317,
-     RETOURNE = 318,
-     VIDE = 319
+     FINSI = 261,
+     PROCEDURE = 262,
+     FONCTION = 263,
+     EST = 264,
+     ET = 265,
+     OU = 266,
+     NON = 267,
+     VRAI = 268,
+     FAUX = 269,
+     OPAFF = 270,
+     INF = 271,
+     INF_EGAL = 272,
+     SUP = 273,
+     SUP_EGAL = 274,
+     EGAL = 275,
+     DIFF = 276,
+     POINT_VIRGULE = 277,
+     DEUX_POINTS = 278,
+     POINT = 279,
+     VIRGULE = 280,
+     GUILLEMET = 281,
+     POINT_POINT = 282,
+     PLUS = 283,
+     MOINS = 284,
+     DIV = 285,
+     MULT = 286,
+     ENTIER = 287,
+     REEL = 288,
+     CARACTERE = 289,
+     CHAINE = 290,
+     BOOLEEN = 291,
+     TABLEAU = 292,
+     DE = 293,
+     STRUCT = 294,
+     FSTRUCT = 295,
+     VARIABLE = 296,
+     TYPE = 297,
+     FORMAT_ENTIER = 298,
+     FORMAT_REELLE = 299,
+     FORMAT_CARACTERE = 300,
+     FORMAT_CHAINE = 301,
+     CROCHET_OUVRANT = 302,
+     CROCHET_FERMANT = 303,
+     PARENTHESE_OUVRANTE = 304,
+     PARENTHESE_FERMANTE = 305,
+     SI = 306,
+     ALORS = 307,
+     SINON = 308,
+     TANT_QUE = 309,
+     FAIRE = 310,
+     END_TANT_QUE = 311,
+     RETOURNE = 312,
+     VIDE = 313,
+     CSTE_ENTIERE = 314,
+     IDF = 315,
+     CSTE_CHAINE = 316,
+     CSTE_CHAR = 317,
+     CSTE_REEL = 318
    };
 #endif
 /* Tokens.  */
 #define PROG 258
 #define DEBUT 259
 #define FIN 260
-#define PROCEDURE 261
-#define FONCTION 262
-#define EST 263
-#define ET 264
-#define OU 265
-#define NON 266
-#define VRAI 267
-#define FAUX 268
-#define OPAFF 269
-#define INF 270
-#define INF_EGAL 271
-#define SUP 272
-#define SUP_EGAL 273
-#define EGAL 274
-#define DIFF 275
-#define POINT_VIRGULE 276
-#define DEUX_POINTS 277
-#define POINT 278
-#define VIRGULE 279
-#define GUILLEMET 280
-#define POINT_POINT 281
-#define PLUS 282
-#define MOINS 283
-#define DIV 284
-#define MULT 285
-#define CSTE_ENTIERE 286
-#define IDF 287
-#define CSTE_CHAINE 288
-#define CSTE_CHAR 289
-#define CSTE_REEL 290
-#define ENTIER 291
-#define REEL 292
-#define CARACTERE 293
-#define CHAINE 294
-#define BOOLEEN 295
-#define TABLEAU 296
-#define DE 297
-#define STRUCT 298
-#define FSTRUCT 299
-#define VARIABLE 300
-#define TYPE 301
-#define FORMAT_ENTIER 302
-#define FORMAT_REELLE 303
-#define FORMAT_CARACTERE 304
-#define FORMAT_CHAINE 305
-#define CROCHET_OUVRANT 306
-#define CROCHET_FERMANT 307
-#define PARENTHESE_OUVRANTE 308
-#define PARENTHESE_FERMANTE 309
-#define SI 310
-#define ALORS 311
-#define SINON 312
-#define TANT_QUE 313
-#define FAIRE 314
-#define END_TANT_QUE 315
-#define LIRE 316
-#define ECRIRE 317
-#define RETOURNE 318
-#define VIDE 319
+#define FINSI 261
+#define PROCEDURE 262
+#define FONCTION 263
+#define EST 264
+#define ET 265
+#define OU 266
+#define NON 267
+#define VRAI 268
+#define FAUX 269
+#define OPAFF 270
+#define INF 271
+#define INF_EGAL 272
+#define SUP 273
+#define SUP_EGAL 274
+#define EGAL 275
+#define DIFF 276
+#define POINT_VIRGULE 277
+#define DEUX_POINTS 278
+#define POINT 279
+#define VIRGULE 280
+#define GUILLEMET 281
+#define POINT_POINT 282
+#define PLUS 283
+#define MOINS 284
+#define DIV 285
+#define MULT 286
+#define ENTIER 287
+#define REEL 288
+#define CARACTERE 289
+#define CHAINE 290
+#define BOOLEEN 291
+#define TABLEAU 292
+#define DE 293
+#define STRUCT 294
+#define FSTRUCT 295
+#define VARIABLE 296
+#define TYPE 297
+#define FORMAT_ENTIER 298
+#define FORMAT_REELLE 299
+#define FORMAT_CARACTERE 300
+#define FORMAT_CHAINE 301
+#define CROCHET_OUVRANT 302
+#define CROCHET_FERMANT 303
+#define PARENTHESE_OUVRANTE 304
+#define PARENTHESE_FERMANTE 305
+#define SI 306
+#define ALORS 307
+#define SINON 308
+#define TANT_QUE 309
+#define FAIRE 310
+#define END_TANT_QUE 311
+#define RETOURNE 312
+#define VIDE 313
+#define CSTE_ENTIERE 314
+#define IDF 315
+#define CSTE_CHAINE 316
+#define CSTE_CHAR 317
+#define CSTE_REEL 318
 
 
 
@@ -178,7 +176,7 @@ typedef union YYSTYPE
 
 
 /* Line 2068 of yacc.c  */
-#line 182 "y.tab.h"
+#line 180 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
