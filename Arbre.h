@@ -35,6 +35,10 @@
 #define T_ECRIRE 26
 #define T_RETOURNE 27
 
+#define T_ITBL 28
+#define T_NSTR 29
+#define T_INDICE 30
+
 
 /*
  * Déclaration des structures

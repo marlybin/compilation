@@ -6,12 +6,5 @@ var y : integer;
 begin 
 
 	i:=0;
-	while( i<max ) loop
-
-		x := x*x;
-		lire(x);
-		i := i+1;
-
-	end loop;
 
 end

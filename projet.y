@@ -42,9 +42,9 @@
 %token <cval> CSTE_CHAR 
 %token <dval> CSTE_REEL 
 
-%type <ival> liste_param liste_parametres type_simple une_dimension dimension nom_type liste_dimensions liste_champs un_champ suite_declaration_variable variable
+%type <ival> liste_param liste_parametres type_simple une_dimension dimension nom_type liste_dimensions liste_champs un_champ suite_declaration_variable 
 %type <noeudval> liste_instructions suite_liste_inst instruction corps programme condition tant_que liste_arguments liste_args un_arg resultat_retourne
-%type <noeudval> affectation expression expression_arith exp1 exp2 expression_bool eb1 eb2 appel concat expression_comp 
+%type <noeudval> affectation expression expression_arith exp1 exp2 expression_bool eb1 eb2 appel concat expression_comp liste_champs_var liste_ind variable
 
 %%
 
@@ -213,25 +213,23 @@ tant_que :
 		;
 			
 affectation	:
-		variable OPAFF expression { $$ =  ajouterFils(creerNoeud( T_AFFECT ),ajouterFrere(creerNoeud_i( T_VAR,$1 ), $3 )); }
+		variable OPAFF expression { $$ =  ajouterFils(creerNoeud( T_AFFECT ),ajouterFrere($1, $3 )); }
 		;
 
-variable: IDF CROCHET_OUVRANT liste_ind CROCHET_FERMANT liste_champs_var { $$ = $1; }
-		| IDF liste_champs_var	{ $$ = $1; }
+/* CECI EST A VERIFIER */
+variable: IDF CROCHET_OUVRANT liste_ind CROCHET_FERMANT liste_champs_var { $$ = creerNoeud_i( T_VAR,$1 ); }
+		| IDF liste_champs_var	{ $$ = creerNoeud_i( T_VAR,$1 ); }
 		;
 
-liste_ind	: un_indice 
-	  	| liste_ind  VIRGULE  un_indice
+liste_ind	: expression_arith 					//{ $$ = creerNoeud_i( T_INDICE,$1 ); }
+	  	| expression_arith VIRGULE liste_ind	//{ $$ = ajouterFrere( creerNoeud_i( T_INDICE,$1 ),$3 ); }
 	  	;
 	
 liste_champs_var :
-		// Vide
-		| POINT variable
+		/* Vide*/			//{ $$ = NULL; }
+		| POINT variable 	//{ $$ = ajouterFils( creerNoeud( T_NSTR ),$2 ); }
 		;
 
-un_indice :
-		expression_arith
-		;
 
 expression	:
 		expression_arith	{ $$ = $1; }
@@ -259,7 +257,7 @@ exp1:
 
 exp2:
 		PARENTHESE_OUVRANTE expression_arith PARENTHESE_FERMANTE	{ $$ =  $2 ; }
-		| variable 				{ $$ = creerNoeud_i( T_VAR,$1 ); }
+		| variable 				{ $$ = $1; }
 		| MOINS CSTE_ENTIERE	{ $$ = creerNoeud_i( T_CST_ENTIER,-1*$2 ); }
 		| MOINS CSTE_REEL 		{ $$ = creerNoeud_f( T_CST_REEL, -1*$2); }
 		| CSTE_ENTIERE			{ $$ = creerNoeud_i( T_CST_ENTIER,$1 ); }
