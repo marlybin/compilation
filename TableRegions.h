@@ -13,5 +13,6 @@ typedef struct lignRegion{
 
 void initRegions();
 void afficherTblRegions();
-int insererRegion(int taille, int nis, arbre *arb);
+int insererRegion(int taille, int nis, arbre *abr);
+
 #endif

@@ -29,5 +29,4 @@ void afficherTblDeclaration();
 //inserer une ligne dans notre tableau de declaration
 int insererDeclaration( int numLexico,int nature,int region, int desciption,int execution );
 
-
 #endif

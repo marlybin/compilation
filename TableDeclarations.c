@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "TableDeclarations.h"
+#include "PileRegions.h"
 
 #define MAX 50
 
@@ -9,6 +10,7 @@ int i_debordement = MAX;
 
 //intialisation de la table de declaration
 void initTblDeclaration(){
+
 	int i;
 	for(i=0; i<=3;i++){
 
@@ -17,14 +19,10 @@ void initTblDeclaration(){
 		tblDeclaration[i].region = 1;
 		tblDeclaration[i].description = i;
 	}
-	
-
 	tblDeclaration[0].execution = sizeof(int);
 	tblDeclaration[1].execution = sizeof(double);
 	tblDeclaration[2].execution = sizeof(char);
 	tblDeclaration[3].execution = sizeof(char);
-
-
 }
 // Affichage de la table de declaration
 void afficherTblDeclaration(){
@@ -52,8 +50,6 @@ void afficherTblDeclaration(){
 	}
 }
 
-
-
 //inserer une ligne dans notre tableau de declaration
 int insererDeclaration( int numLexico,int nature,int region, int desciption,int execution ){
 
@@ -66,15 +62,16 @@ int insererDeclaration( int numLexico,int nature,int region, int desciption,int 
 		tblDeclaration[numLexico].execution = execution ;
 	}
 	else{
+
 		tblDeclaration[i_debordement].suivant = -1;
 		tblDeclaration[i_debordement].nature = nature;
 		tblDeclaration[i_debordement].region = region;
 		tblDeclaration[i_debordement].description = desciption ;
 		tblDeclaration[i_debordement].execution = execution ;
 
-
 		int i = numLexico;
 		while( tblDeclaration[i].suivant !=-1 ){
+
 			i = tblDeclaration[i].suivant;
 		}
 
@@ -86,4 +83,7 @@ int insererDeclaration( int numLexico,int nature,int region, int desciption,int 
 	return 0;
 }
 
+int associationNom( int numLexico ){
 
+
+}

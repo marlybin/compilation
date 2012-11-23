@@ -1,10 +1,24 @@
 program 
 
-var x : integer;
-var y : integer;
 
-begin 
 
-	i:=0;
+
+
+
+begin
+
+while ( a<1 ) loop
+
+	a();
+
+end loop;
+
+if( a < 123 ) then 
+
+	x:= 4;
+else
+
+	x:=6;
+endif;
 
 end

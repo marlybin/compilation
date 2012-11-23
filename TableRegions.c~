@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "TableRegions.h"
-#include "Arbre.h"
 #define MAXR 5
 
 
@@ -20,53 +19,38 @@ void initRegions(){
 	    }
 }
 
-int insererRegion(int taille, int nis, arbre *abr){
-
-	TblRegions[ compteur ].taille = taille;
-	TblRegions[ compteur ].NIS = nis;
-	TblRegions[ compteur ].tree = abr;
-
-	return compteur++;
-
-/*
-	compteur++;
-	int i = 0,true = 1;
+int insererRegion(int taille, int nis, arbre *arb){
+int i = 0;
+compteur++;
+int  true = 1;
     while(true){
+        if(TblRegions[i].taille == 0 ){
+       TblRegions[i].taille = taille;
+        TblRegions[i].NIS = nis;
+        TblRegions[i].tree = arb;
+        true = 0;
+        
 
-        if(TblRegions[i].taille == 0){
-
-	      	TblRegions[i].taille = taille;
-	        TblRegions[i].NIS = nis;
-	        TblRegions[i].tree = arb;
-	        true = 0;
         }
         else i++;
 
     }
 	return compteur-1;
-	*/
 }
 
-int tailleRegion (int numregion){
-
-	return  TblRegions[numregion].taille;
-
-}
 
 void afficherTblRegions(){
-
 	int i;
 	printf("\n");
 	printf("\tTable des regions\n");
 	printf("\n");
-	printf("   i     Taille    NIS\n");
+	printf("  i     Taille    NIS\n");
 	printf("___________________________\n");
-	for(i=0; i<compteur; i++){
+	for(i=0; i<MAXR; i++){
+	printf("    %d   |  %d   ||   %d   | ", i, TblRegions[i].taille, TblRegions[i].NIS);
+	//display_tree(TblRegions[i].tree);
+	printf("\n");
 
-		printf("    %d   |  %d   ||   %d   | ", i, TblRegions[i].taille, TblRegions[i].NIS);
-		afficherArbre( TblRegions[i].tree );
-		//display_tree(TblRegions[i].tree);
-		printf("\n");
     }
 }
 

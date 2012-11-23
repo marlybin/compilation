@@ -91,102 +91,133 @@ noeud * ajouterFrere( noeud * origin, noeud * frere ){
 }
 
 /*
- * Affiche un arbre en ligne
+ * Affiche un arbre
+ * Fonction récursive afin de mettre la tabulation
  */
-void afficherArbre( arbre * abr ){
+void afficherArbre_( arbre * abr,int p ){
 
 	printf("(");
+	int i;
 	while( abr != NULL ){
+
+		//printf("\n");
+		//for( i=0;i<p;i++ ) printf("    ");
 
 		switch( abr->type ){
 
 			case T_CST_ENTIER :
-				printf(" CST-INT=%i ",abr->valeur.entier);
+				printf("CST-INT=%i ",abr->valeur.entier);
 			break;
 
 			case T_CST_REEL :
-				printf(" CST-REEL=%f ",abr->valeur.reel);
+				printf("CST-REEL=%f ",abr->valeur.reel);
 			break;
 
 			case T_AFFECT :
-				printf(" AFFECT ");
+				printf("AFFECT ");
 			break;
 
 			case T_VAR :
-				printf(" VAR[%s] ",tblLex[abr->valeur.entier].lexeme);
+				printf("VAR[%s] ",tblLex[abr->valeur.entier].lexeme);
 			break;
 
 			case T_MULT :
-				printf(" MULT ");
+				printf("MULT ");
 			break;
 
 			case T_DIV :
-				printf(" DIV ");
+				printf("DIV ");
 			break;
 
 			case T_PLUS :
-				printf(" PLUS ");
+				printf("PLUS ");
 			break;
 
 			case T_MOINS :
-				printf(" MOINS ");
+				printf("MOINS ");
 			break;
 
 			case T_APPEL :
-				printf(" APPEL [%s]",tblLex[abr->valeur.entier].lexeme);
+				printf("APPEL [%s]",tblLex[abr->valeur.entier].lexeme);
 			break;
 
 			case T_CONCAT :
-				printf(" CONCAT ");
+				printf("CONCAT ");
 			break;
 
 			case T_CHAINE :
-				printf(" CHAINE [%s]",abr->valeur.string);
+				printf("CHAINE [%s]",abr->valeur.string);
 			break;
 
 			case T_TANTQUE :
-				printf(" TANTQUE ");
+				printf("TANTQUE ");
 			break;
 
 			case T_AND :
-				printf(" AND ");
+				printf("AND ");
 			break;
 
 			case T_OR :
-				printf(" OR ");
+				printf("OR ");
 			break;
 
 			case T_SUP :
-				printf(" > ");
+				printf("> ");
 			break;
 
 			case T_INF :
-				printf(" < ");
+				printf("< ");
 			break;
 
 			case T_SUP_EGAL:
-				printf(" >= ");
+				printf(">= ");
 			break;
 
 			case T_INF_EGAL :
-				printf(" <= ");
+				printf("<= ");
 			break;
 
 			case T_SI :
-				printf(" SI ");
+				printf("SI ");
+			break;
+
+			case T_STRUCT_ELEM :
+				printf("STRUCT[%s] ",tblLex[abr->valeur.entier].lexeme);
+			break;
+
+			case T_TABLE_ELEM :
+				printf("TBL ");
+			break;
+
+			case T_INDICE :
+				printf("INDICE ");
+			break;
+
+			case T_BOOL :
+				if( abr->valeur.entier==0 ) printf(" FAUX ");
+				else printf("VRAI");
+			break;
+
+			default :
+				printf(" ? %i ? ",abr->type);
 			break;
 
 		}
 
 		if( abr->fils!=NULL ){
-			afficherArbre( abr->fils );
+			afficherArbre_( abr->fils,p+1 );
 		}
 
+		if( abr->frere!=NULL ) printf(", ");
 		abr = abr->frere;
-		if( abr!=NULL ) printf(",");
 	}
-	printf(")");
+	printf(") ");
 }
 
+/*
+ * Affiche un arbre
+ */
+void afficherArbre( arbre * abr ){
 
-
+	afficherArbre_( abr,0 );
+}

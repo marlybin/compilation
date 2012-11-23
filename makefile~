@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS= -Wall
 
 # Nettoie, compile et exécute
-all : clean main exec
+all : clean main clear exec
 
 
 main : lex.yy.o y.tab.c TableLexico.o TableType.o buffer.o PileRegions.o TableDeclarations.o TableRegions.o Arbre.o 
@@ -44,7 +44,7 @@ clear :
 
 # Execution
 exec :
-	@./projet < ./tests/basic.cpyrr
+	@./projet < test.txt
 
 # Pour les tests
 test : test.c Arbre.h Arbre.c
