@@ -1,6 +1,5 @@
 program 
 
-<<<<<<< HEAD
 
 
 
@@ -21,13 +20,5 @@ else
 
 	x:=6;
 endif;
-=======
-var x : integer;
-var y : integer;
-
-begin 
-
-	i:=0;
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 end

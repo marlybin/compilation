@@ -9,12 +9,9 @@ Terminaux inutilisés dans la grammaire
    FORMAT_CHAINE
 
 
-<<<<<<< HEAD
 État 95 conflits: 1 décalage/réduction
 
 
-=======
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 Grammaire
 
     0 $accept: programme $end
@@ -110,7 +107,6 @@ Grammaire
 
    59 affectation: variable OPAFF expression
 
-<<<<<<< HEAD
    60 variable: IDF variable_suite
 
    61 variable_suite: /* vide */
@@ -164,58 +160,6 @@ Grammaire
    98                | expression_arith SUP expression_arith
    99                | expression_arith SUP_EGAL expression_arith
   100                | expression_arith EGAL expression_arith
-=======
-   60 variable: IDF CROCHET_OUVRANT liste_ind CROCHET_FERMANT liste_champs_var
-   61         | IDF liste_champs_var
-
-   62 liste_ind: expression_arith
-   63          | expression_arith VIRGULE liste_ind
-
-   64 liste_champs_var: /* vide */
-   65                 | POINT variable
-
-   66 expression: expression_arith
-   67           | expression_bool
-   68           | CSTE_CHAR
-   69           | concat
-
-   70 concat: CSTE_CHAINE
-   71       | concat PLUS CSTE_CHAINE
-
-   72 expression_arith: expression_arith PLUS exp1
-   73                 | expression_arith MOINS exp1
-   74                 | exp1
-
-   75 exp1: exp1 MULT exp2
-   76     | exp1 DIV exp2
-   77     | exp2
-
-   78 exp2: PARENTHESE_OUVRANTE expression_arith PARENTHESE_FERMANTE
-   79     | variable
-   80     | MOINS CSTE_ENTIERE
-   81     | MOINS CSTE_REEL
-   82     | CSTE_ENTIERE
-   83     | CSTE_REEL
-   84     | appel
-
-   85 expression_bool: expression_bool ET eb1
-   86                | expression_bool OU eb1
-   87                | eb1
-
-   88 eb1: NON eb2
-   89    | eb2
-
-   90 eb2: PARENTHESE_OUVRANTE expression_bool PARENTHESE_FERMANTE
-   91    | VRAI
-   92    | FAUX
-   93    | expression_comp
-
-   94 expression_comp: expression_arith INF expression_arith
-   95                | expression_arith INF_EGAL expression_arith
-   96                | expression_arith SUP expression_arith
-   97                | expression_arith SUP_EGAL expression_arith
-   98                | expression_arith EGAL expression_arith
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 Terminaux, suivis des règles où ils apparaissent
@@ -229,7 +173,6 @@ FINSI (261) 56 57
 PROCEDURE (262) 34
 FONCTION (263) 36
 EST (264)
-<<<<<<< HEAD
 ET (265) 87
 OU (266) 88
 NON (267) 90
@@ -252,30 +195,6 @@ PLUS (283) 73 74
 MOINS (284) 75 82 83
 DIV (285) 78
 MULT (286) 77
-=======
-ET (265) 85
-OU (266) 86
-NON (267) 88
-VRAI (268) 91
-FAUX (269) 92
-OPAFF (270) 59
-INF (271) 94
-INF_EGAL (272) 95
-SUP (273) 96
-SUP_EGAL (274) 97
-EGAL (275) 98
-DIFF (276)
-POINT_VIRGULE (277) 5 6 8 9 20 21
-DEUX_POINTS (278) 14 15 22 31 41
-POINT (279) 65
-VIRGULE (280) 18 32 40 54 63
-GUILLEMET (281)
-POINT_POINT (282) 19
-PLUS (283) 71 72
-MOINS (284) 73 80 81
-DIV (285) 76
-MULT (286) 75
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 ENTIER (287) 25
 REEL (288) 26
 CARACTERE (289) 28
@@ -291,17 +210,10 @@ FORMAT_ENTIER (298)
 FORMAT_REELLE (299)
 FORMAT_CARACTERE (300)
 FORMAT_CHAINE (301)
-<<<<<<< HEAD
 CROCHET_OUVRANT (302) 16 29 62
 CROCHET_FERMANT (303) 16 29 62
 PARENTHESE_OUVRANTE (304) 37 51 80 92
 PARENTHESE_FERMANTE (305) 37 51 80 92
-=======
-CROCHET_OUVRANT (302) 16 29 60
-CROCHET_FERMANT (303) 16 29 60
-PARENTHESE_OUVRANTE (304) 37 51 78 90
-PARENTHESE_FERMANTE (305) 37 51 78 90
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 SI (306) 56 57
 ALORS (307) 56 57
 SINON (308) 56
@@ -310,19 +222,11 @@ FAIRE (310) 58
 END_TANT_QUE (311) 58
 RETOURNE (312) 36 47
 VIDE (313) 46
-<<<<<<< HEAD
 CSTE_ENTIERE (314) 19 29 82 84
 IDF (315) 14 15 22 24 31 32 34 36 41 50 60 66 67
 CSTE_CHAINE (316) 72 73
 CSTE_CHAR (317) 70
 CSTE_REEL (318) 83 85
-=======
-CSTE_ENTIERE (314) 19 29 80 82
-IDF (315) 14 15 22 24 31 32 34 36 41 50 60 61
-CSTE_CHAINE (316) 70 71
-CSTE_CHAR (317) 68
-CSTE_REEL (318) 81 83
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 Non-terminaux, suivis des règles où ils apparaissent
@@ -380,11 +284,7 @@ instruction (88)
 resultat_retourne (89)
     à gauche: 48 49, à droite: 47
 appel (90)
-<<<<<<< HEAD
     à gauche: 50, à droite: 45 86
-=======
-    à gauche: 50, à droite: 45 84
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 liste_arguments (91)
     à gauche: 51, à droite: 50
 liste_args (92)
@@ -398,7 +298,6 @@ tant_que (95)
 affectation (96)
     à gauche: 59, à droite: 42
 variable (97)
-<<<<<<< HEAD
     à gauche: 60, à droite: 59 81
 variable_suite (98)
     à gauche: 61 62 63, à droite: 60 62 63
@@ -424,31 +323,6 @@ eb2 (108)
     à gauche: 92 93 94 95, à droite: 90 91
 expression_comp (109)
     à gauche: 96 97 98 99 100, à droite: 95
-=======
-    à gauche: 60 61, à droite: 59 65 79
-liste_ind (98)
-    à gauche: 62 63, à droite: 60 63
-liste_champs_var (99)
-    à gauche: 64 65, à droite: 60 61
-expression (100)
-    à gauche: 66 67 68 69, à droite: 49 55 59
-concat (101)
-    à gauche: 70 71, à droite: 69 71
-expression_arith (102)
-    à gauche: 72 73 74, à droite: 62 63 66 72 73 78 94 95 96 97 98
-exp1 (103)
-    à gauche: 75 76 77, à droite: 72 73 74 75 76
-exp2 (104)
-    à gauche: 78 79 80 81 82 83 84, à droite: 75 76 77
-expression_bool (105)
-    à gauche: 85 86 87, à droite: 56 57 58 67 85 86 90
-eb1 (106)
-    à gauche: 88 89, à droite: 85 86 87
-eb2 (107)
-    à gauche: 90 91 92 93, à droite: 88 89
-expression_comp (108)
-    à gauche: 94 95 96 97 98, à droite: 93
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 0
@@ -695,40 +569,24 @@ expression_comp (108)
 état 21
 
    50 appel: IDF . liste_arguments
-<<<<<<< HEAD
    60 variable: IDF . variable_suite
-=======
-   60 variable: IDF . CROCHET_OUVRANT liste_ind CROCHET_FERMANT liste_champs_var
-   61         | IDF . liste_champs_var
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     POINT                décalage et aller à l'état 60
     CROCHET_OUVRANT      décalage et aller à l'état 61
     PARENTHESE_OUVRANTE  décalage et aller à l'état 62
 
-<<<<<<< HEAD
     $défaut  réduction par utilisation de la règle 61 (variable_suite)
 
     liste_arguments   aller à l'état 63
     variable_suite    aller à l'état 64
     liste_champs_var  aller à l'état 65
-=======
-    $défaut  réduction par utilisation de la règle 64 (liste_champs_var)
-
-    liste_arguments   aller à l'état 63
-    liste_champs_var  aller à l'état 64
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 22
 
     7 liste_instructions: DEBUT suite_liste_inst . FIN
 
-<<<<<<< HEAD
     FIN  décalage et aller à l'état 66
-=======
-    FIN  décalage et aller à l'état 65
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 23
@@ -736,11 +594,7 @@ expression_comp (108)
     8 suite_liste_inst: instruction . POINT_VIRGULE
     9                 | instruction . POINT_VIRGULE suite_liste_inst
 
-<<<<<<< HEAD
     POINT_VIRGULE  décalage et aller à l'état 67
-=======
-    POINT_VIRGULE  décalage et aller à l'état 66
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 24
@@ -775,49 +629,29 @@ expression_comp (108)
 
    59 affectation: variable . OPAFF expression
 
-<<<<<<< HEAD
     OPAFF  décalage et aller à l'état 68
-=======
-    OPAFF  décalage et aller à l'état 67
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 29
 
    34 declaration_procedure: PROCEDURE IDF . liste_parametres $@1 corps
 
-<<<<<<< HEAD
     PARENTHESE_OUVRANTE  décalage et aller à l'état 69
 
     $défaut  réduction par utilisation de la règle 38 (liste_parametres)
 
     liste_parametres  aller à l'état 70
-=======
-    PARENTHESE_OUVRANTE  décalage et aller à l'état 68
-
-    $défaut  réduction par utilisation de la règle 38 (liste_parametres)
-
-    liste_parametres  aller à l'état 69
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 30
 
    36 declaration_fonction: FONCTION IDF . liste_parametres RETOURNE type_simple $@2 corps
 
-<<<<<<< HEAD
     PARENTHESE_OUVRANTE  décalage et aller à l'état 69
 
     $défaut  réduction par utilisation de la règle 38 (liste_parametres)
 
     liste_parametres  aller à l'état 71
-=======
-    PARENTHESE_OUVRANTE  décalage et aller à l'état 68
-
-    $défaut  réduction par utilisation de la règle 38 (liste_parametres)
-
-    liste_parametres  aller à l'état 70
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 31
@@ -825,13 +659,8 @@ expression_comp (108)
    31 suite_declaration_variable: IDF . DEUX_POINTS nom_type
    32                           | IDF . VIRGULE suite_declaration_variable
 
-<<<<<<< HEAD
     DEUX_POINTS  décalage et aller à l'état 72
     VIRGULE      décalage et aller à l'état 73
-=======
-    DEUX_POINTS  décalage et aller à l'état 71
-    VIRGULE      décalage et aller à l'état 72
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 32
@@ -846,11 +675,7 @@ expression_comp (108)
    14 declaration_type: TYPE IDF . DEUX_POINTS STRUCT liste_champs FSTRUCT
    15                 | TYPE IDF . DEUX_POINTS TABLEAU dimension DE nom_type
 
-<<<<<<< HEAD
     DEUX_POINTS  décalage et aller à l'état 74
-=======
-    DEUX_POINTS  décalage et aller à l'état 73
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 34
@@ -872,11 +697,7 @@ expression_comp (108)
 
     $défaut  réduction par utilisation de la règle 5 (liste_declarations)
 
-<<<<<<< HEAD
     liste_declarations     aller à l'état 75
-=======
-    liste_declarations     aller à l'état 74
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     declaration            aller à l'état 11
     declaration_type       aller à l'état 12
     declaration_variable   aller à l'état 13
@@ -886,11 +707,7 @@ expression_comp (108)
 
 état 36
 
-<<<<<<< HEAD
    90 eb1: NON . eb2
-=======
-   88 eb1: NON . eb2
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     VRAI                 décalage et aller à l'état 37
     FAUX                 décalage et aller à l'état 38
@@ -905,66 +722,37 @@ expression_comp (108)
     expression_arith  aller à l'état 45
     exp1              aller à l'état 46
     exp2              aller à l'état 47
-<<<<<<< HEAD
     eb2               aller à l'état 76
-=======
-    eb2               aller à l'état 75
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     expression_comp   aller à l'état 51
 
 
 état 37
 
-<<<<<<< HEAD
    93 eb2: VRAI .
 
     $défaut  réduction par utilisation de la règle 93 (eb2)
-=======
-   91 eb2: VRAI .
-
-    $défaut  réduction par utilisation de la règle 91 (eb2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 38
 
-<<<<<<< HEAD
    94 eb2: FAUX .
 
     $défaut  réduction par utilisation de la règle 94 (eb2)
-=======
-   92 eb2: FAUX .
-
-    $défaut  réduction par utilisation de la règle 92 (eb2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 39
 
-<<<<<<< HEAD
    82 exp2: MOINS . CSTE_ENTIERE
    83     | MOINS . CSTE_REEL
 
     CSTE_ENTIERE  décalage et aller à l'état 77
     CSTE_REEL     décalage et aller à l'état 78
-=======
-   80 exp2: MOINS . CSTE_ENTIERE
-   81     | MOINS . CSTE_REEL
-
-    CSTE_ENTIERE  décalage et aller à l'état 76
-    CSTE_REEL     décalage et aller à l'état 77
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 40
 
-<<<<<<< HEAD
    80 exp2: PARENTHESE_OUVRANTE . expression_arith PARENTHESE_FERMANTE
    92 eb2: PARENTHESE_OUVRANTE . expression_bool PARENTHESE_FERMANTE
-=======
-   78 exp2: PARENTHESE_OUVRANTE . expression_arith PARENTHESE_FERMANTE
-   90 eb2: PARENTHESE_OUVRANTE . expression_bool PARENTHESE_FERMANTE
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     NON                  décalage et aller à l'état 36
     VRAI                 décalage et aller à l'état 37
@@ -977,17 +765,10 @@ expression_comp (108)
 
     appel             aller à l'état 43
     variable          aller à l'état 44
-<<<<<<< HEAD
     expression_arith  aller à l'état 79
     exp1              aller à l'état 46
     exp2              aller à l'état 47
     expression_bool   aller à l'état 80
-=======
-    expression_arith  aller à l'état 78
-    exp1              aller à l'état 46
-    exp2              aller à l'état 47
-    expression_bool   aller à l'état 79
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     eb1               aller à l'état 49
     eb2               aller à l'état 50
     expression_comp   aller à l'état 51
@@ -995,59 +776,34 @@ expression_comp (108)
 
 état 41
 
-<<<<<<< HEAD
    84 exp2: CSTE_ENTIERE .
 
     $défaut  réduction par utilisation de la règle 84 (exp2)
-=======
-   82 exp2: CSTE_ENTIERE .
-
-    $défaut  réduction par utilisation de la règle 82 (exp2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 42
 
-<<<<<<< HEAD
    85 exp2: CSTE_REEL .
 
     $défaut  réduction par utilisation de la règle 85 (exp2)
-=======
-   83 exp2: CSTE_REEL .
-
-    $défaut  réduction par utilisation de la règle 83 (exp2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 43
 
-<<<<<<< HEAD
    86 exp2: appel .
 
     $défaut  réduction par utilisation de la règle 86 (exp2)
-=======
-   84 exp2: appel .
-
-    $défaut  réduction par utilisation de la règle 84 (exp2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 44
 
-<<<<<<< HEAD
    81 exp2: variable .
 
     $défaut  réduction par utilisation de la règle 81 (exp2)
-=======
-   79 exp2: variable .
-
-    $défaut  réduction par utilisation de la règle 79 (exp2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 45
 
-<<<<<<< HEAD
    74 expression_arith: expression_arith . PLUS exp1
    75                 | expression_arith . MOINS exp1
    96 expression_comp: expression_arith . INF expression_arith
@@ -1063,28 +819,10 @@ expression_comp (108)
     EGAL      décalage et aller à l'état 85
     PLUS      décalage et aller à l'état 86
     MOINS     décalage et aller à l'état 87
-=======
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-   94 expression_comp: expression_arith . INF expression_arith
-   95                | expression_arith . INF_EGAL expression_arith
-   96                | expression_arith . SUP expression_arith
-   97                | expression_arith . SUP_EGAL expression_arith
-   98                | expression_arith . EGAL expression_arith
-
-    INF       décalage et aller à l'état 80
-    INF_EGAL  décalage et aller à l'état 81
-    SUP       décalage et aller à l'état 82
-    SUP_EGAL  décalage et aller à l'état 83
-    EGAL      décalage et aller à l'état 84
-    PLUS      décalage et aller à l'état 85
-    MOINS     décalage et aller à l'état 86
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 46
 
-<<<<<<< HEAD
    76 expression_arith: exp1 .
    77 exp1: exp1 . MULT exp2
    78     | exp1 . DIV exp2
@@ -1093,135 +831,71 @@ expression_comp (108)
     MULT  décalage et aller à l'état 89
 
     $défaut  réduction par utilisation de la règle 76 (expression_arith)
-=======
-   74 expression_arith: exp1 .
-   75 exp1: exp1 . MULT exp2
-   76     | exp1 . DIV exp2
-
-    DIV   décalage et aller à l'état 87
-    MULT  décalage et aller à l'état 88
-
-    $défaut  réduction par utilisation de la règle 74 (expression_arith)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 47
 
-<<<<<<< HEAD
    79 exp1: exp2 .
 
     $défaut  réduction par utilisation de la règle 79 (exp1)
-=======
-   77 exp1: exp2 .
-
-    $défaut  réduction par utilisation de la règle 77 (exp1)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 48
 
    56 condition: SI expression_bool . ALORS suite_liste_inst SINON suite_liste_inst FINSI
    57          | SI expression_bool . ALORS suite_liste_inst FINSI
-<<<<<<< HEAD
    87 expression_bool: expression_bool . ET eb1
    88                | expression_bool . OU eb1
 
     ET     décalage et aller à l'état 90
     OU     décalage et aller à l'état 91
     ALORS  décalage et aller à l'état 92
-=======
-   85 expression_bool: expression_bool . ET eb1
-   86                | expression_bool . OU eb1
-
-    ET     décalage et aller à l'état 89
-    OU     décalage et aller à l'état 90
-    ALORS  décalage et aller à l'état 91
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 49
 
-<<<<<<< HEAD
    89 expression_bool: eb1 .
 
     $défaut  réduction par utilisation de la règle 89 (expression_bool)
-=======
-   87 expression_bool: eb1 .
-
-    $défaut  réduction par utilisation de la règle 87 (expression_bool)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 50
 
-<<<<<<< HEAD
    91 eb1: eb2 .
 
     $défaut  réduction par utilisation de la règle 91 (eb1)
-=======
-   89 eb1: eb2 .
-
-    $défaut  réduction par utilisation de la règle 89 (eb1)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 51
 
-<<<<<<< HEAD
    95 eb2: expression_comp .
 
     $défaut  réduction par utilisation de la règle 95 (eb2)
-=======
-   93 eb2: expression_comp .
-
-    $défaut  réduction par utilisation de la règle 93 (eb2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 52
 
    58 tant_que: TANT_QUE expression_bool . FAIRE suite_liste_inst END_TANT_QUE
-<<<<<<< HEAD
    87 expression_bool: expression_bool . ET eb1
    88                | expression_bool . OU eb1
 
     ET     décalage et aller à l'état 90
     OU     décalage et aller à l'état 91
     FAIRE  décalage et aller à l'état 93
-=======
-   85 expression_bool: expression_bool . ET eb1
-   86                | expression_bool . OU eb1
-
-    ET     décalage et aller à l'état 89
-    OU     décalage et aller à l'état 90
-    FAIRE  décalage et aller à l'état 92
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 53
 
-<<<<<<< HEAD
    72 concat: CSTE_CHAINE .
 
     $défaut  réduction par utilisation de la règle 72 (concat)
-=======
-   70 concat: CSTE_CHAINE .
-
-    $défaut  réduction par utilisation de la règle 70 (concat)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 54
 
-<<<<<<< HEAD
    70 expression: CSTE_CHAR .
 
     $défaut  réduction par utilisation de la règle 70 (expression)
-=======
-   68 expression: CSTE_CHAR .
-
-    $défaut  réduction par utilisation de la règle 68 (expression)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 55
@@ -1240,26 +914,16 @@ expression_comp (108)
 
 état 57
 
-<<<<<<< HEAD
    71 expression: concat .
    73 concat: concat . PLUS CSTE_CHAINE
 
     PLUS  décalage et aller à l'état 94
 
     $défaut  réduction par utilisation de la règle 71 (expression)
-=======
-   69 expression: concat .
-   71 concat: concat . PLUS CSTE_CHAINE
-
-    PLUS  décalage et aller à l'état 93
-
-    $défaut  réduction par utilisation de la règle 69 (expression)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 58
 
-<<<<<<< HEAD
    68 expression: expression_arith .
    74 expression_arith: expression_arith . PLUS exp1
    75                 | expression_arith . MOINS exp1
@@ -1278,31 +942,10 @@ expression_comp (108)
     MOINS     décalage et aller à l'état 87
 
     $défaut  réduction par utilisation de la règle 68 (expression)
-=======
-   66 expression: expression_arith .
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-   94 expression_comp: expression_arith . INF expression_arith
-   95                | expression_arith . INF_EGAL expression_arith
-   96                | expression_arith . SUP expression_arith
-   97                | expression_arith . SUP_EGAL expression_arith
-   98                | expression_arith . EGAL expression_arith
-
-    INF       décalage et aller à l'état 80
-    INF_EGAL  décalage et aller à l'état 81
-    SUP       décalage et aller à l'état 82
-    SUP_EGAL  décalage et aller à l'état 83
-    EGAL      décalage et aller à l'état 84
-    PLUS      décalage et aller à l'état 85
-    MOINS     décalage et aller à l'état 86
-
-    $défaut  réduction par utilisation de la règle 66 (expression)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 59
 
-<<<<<<< HEAD
    69 expression: expression_bool .
    87 expression_bool: expression_bool . ET eb1
    88                | expression_bool . OU eb1
@@ -1311,41 +954,19 @@ expression_comp (108)
     OU  décalage et aller à l'état 91
 
     $défaut  réduction par utilisation de la règle 69 (expression)
-=======
-   67 expression: expression_bool .
-   85 expression_bool: expression_bool . ET eb1
-   86                | expression_bool . OU eb1
-
-    ET  décalage et aller à l'état 89
-    OU  décalage et aller à l'état 90
-
-    $défaut  réduction par utilisation de la règle 67 (expression)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 60
 
-<<<<<<< HEAD
    66 liste_champs_var: POINT . IDF
    67                 | POINT . IDF liste_champs_var
 
     IDF  décalage et aller à l'état 95
-=======
-   65 liste_champs_var: POINT . variable
-
-    IDF  décalage et aller à l'état 94
-
-    variable  aller à l'état 95
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 61
 
-<<<<<<< HEAD
    62 variable_suite: CROCHET_OUVRANT . liste_ind CROCHET_FERMANT variable_suite
-=======
-   60 variable: IDF CROCHET_OUVRANT . liste_ind CROCHET_FERMANT liste_champs_var
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -1402,20 +1023,13 @@ expression_comp (108)
 
 état 64
 
-<<<<<<< HEAD
    60 variable: IDF variable_suite .
 
     $défaut  réduction par utilisation de la règle 60 (variable)
-=======
-   61 variable: IDF liste_champs_var .
-
-    $défaut  réduction par utilisation de la règle 61 (variable)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 65
 
-<<<<<<< HEAD
    63 variable_suite: liste_champs_var . variable_suite
 
     POINT            décalage et aller à l'état 60
@@ -1429,18 +1043,12 @@ expression_comp (108)
 
 état 66
 
-=======
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     7 liste_instructions: DEBUT suite_liste_inst FIN .
 
     $défaut  réduction par utilisation de la règle 7 (liste_instructions)
 
 
-<<<<<<< HEAD
 état 67
-=======
-état 66
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     8 suite_liste_inst: instruction POINT_VIRGULE .
     9                 | instruction POINT_VIRGULE . suite_liste_inst
@@ -1453,11 +1061,7 @@ expression_comp (108)
 
     $défaut  réduction par utilisation de la règle 8 (suite_liste_inst)
 
-<<<<<<< HEAD
     suite_liste_inst  aller à l'état 103
-=======
-    suite_liste_inst  aller à l'état 102
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     instruction       aller à l'état 23
     appel             aller à l'état 24
     condition         aller à l'état 25
@@ -1466,11 +1070,7 @@ expression_comp (108)
     variable          aller à l'état 28
 
 
-<<<<<<< HEAD
 état 68
-=======
-état 67
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    59 affectation: variable OPAFF . expression
 
@@ -1487,11 +1087,7 @@ expression_comp (108)
 
     appel             aller à l'état 43
     variable          aller à l'état 44
-<<<<<<< HEAD
     expression        aller à l'état 104
-=======
-    expression        aller à l'état 103
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     concat            aller à l'état 57
     expression_arith  aller à l'état 58
     exp1              aller à l'état 46
@@ -1502,7 +1098,6 @@ expression_comp (108)
     expression_comp   aller à l'état 51
 
 
-<<<<<<< HEAD
 état 69
 
    37 liste_parametres: PARENTHESE_OUVRANTE . liste_param PARENTHESE_FERMANTE
@@ -1514,25 +1109,11 @@ expression_comp (108)
 
 
 état 70
-=======
-état 68
-
-   37 liste_parametres: PARENTHESE_OUVRANTE . liste_param PARENTHESE_FERMANTE
-
-    IDF  décalage et aller à l'état 104
-
-    liste_param  aller à l'état 105
-    un_param     aller à l'état 106
-
-
-état 69
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    34 declaration_procedure: PROCEDURE IDF liste_parametres . $@1 corps
 
     $défaut  réduction par utilisation de la règle 33 ($@1)
 
-<<<<<<< HEAD
     $@1  aller à l'état 108
 
 
@@ -1559,138 +1140,53 @@ expression_comp (108)
 
 
 état 73
-=======
-    $@1  aller à l'état 107
-
-
-état 70
-
-   36 declaration_fonction: FONCTION IDF liste_parametres . RETOURNE type_simple $@2 corps
-
-    RETOURNE  décalage et aller à l'état 108
-
-
-état 71
-
-   31 suite_declaration_variable: IDF DEUX_POINTS . nom_type
-
-    ENTIER     décalage et aller à l'état 109
-    REEL       décalage et aller à l'état 110
-    CARACTERE  décalage et aller à l'état 111
-    CHAINE     décalage et aller à l'état 112
-    BOOLEEN    décalage et aller à l'état 113
-    IDF        décalage et aller à l'état 114
-
-    nom_type     aller à l'état 115
-    type_simple  aller à l'état 116
-
-
-état 72
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    32 suite_declaration_variable: IDF VIRGULE . suite_declaration_variable
 
     IDF  décalage et aller à l'état 31
 
-<<<<<<< HEAD
     suite_declaration_variable  aller à l'état 118
 
 
 état 74
-=======
-    suite_declaration_variable  aller à l'état 117
-
-
-état 73
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    14 declaration_type: TYPE IDF DEUX_POINTS . STRUCT liste_champs FSTRUCT
    15                 | TYPE IDF DEUX_POINTS . TABLEAU dimension DE nom_type
 
-<<<<<<< HEAD
     TABLEAU  décalage et aller à l'état 119
     STRUCT   décalage et aller à l'état 120
 
 
 état 75
-=======
-    TABLEAU  décalage et aller à l'état 118
-    STRUCT   décalage et aller à l'état 119
-
-
-état 74
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     6 liste_declarations: declaration POINT_VIRGULE liste_declarations .
 
     $défaut  réduction par utilisation de la règle 6 (liste_declarations)
 
 
-<<<<<<< HEAD
 état 76
 
    90 eb1: NON eb2 .
 
     $défaut  réduction par utilisation de la règle 90 (eb1)
-=======
-état 75
-
-   88 eb1: NON eb2 .
-
-    $défaut  réduction par utilisation de la règle 88 (eb1)
-
-
-état 76
-
-   80 exp2: MOINS CSTE_ENTIERE .
-
-    $défaut  réduction par utilisation de la règle 80 (exp2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 77
 
-<<<<<<< HEAD
    82 exp2: MOINS CSTE_ENTIERE .
 
     $défaut  réduction par utilisation de la règle 82 (exp2)
-=======
-   81 exp2: MOINS CSTE_REEL .
-
-    $défaut  réduction par utilisation de la règle 81 (exp2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 78
 
-<<<<<<< HEAD
    83 exp2: MOINS CSTE_REEL .
 
     $défaut  réduction par utilisation de la règle 83 (exp2)
-=======
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-   78 exp2: PARENTHESE_OUVRANTE expression_arith . PARENTHESE_FERMANTE
-   94 expression_comp: expression_arith . INF expression_arith
-   95                | expression_arith . INF_EGAL expression_arith
-   96                | expression_arith . SUP expression_arith
-   97                | expression_arith . SUP_EGAL expression_arith
-   98                | expression_arith . EGAL expression_arith
-
-    INF                  décalage et aller à l'état 80
-    INF_EGAL             décalage et aller à l'état 81
-    SUP                  décalage et aller à l'état 82
-    SUP_EGAL             décalage et aller à l'état 83
-    EGAL                 décalage et aller à l'état 84
-    PLUS                 décalage et aller à l'état 85
-    MOINS                décalage et aller à l'état 86
-    PARENTHESE_FERMANTE  décalage et aller à l'état 120
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 79
 
-<<<<<<< HEAD
    74 expression_arith: expression_arith . PLUS exp1
    75                 | expression_arith . MOINS exp1
    80 exp2: PARENTHESE_OUVRANTE expression_arith . PARENTHESE_FERMANTE
@@ -1707,20 +1203,11 @@ expression_comp (108)
     EGAL                 décalage et aller à l'état 85
     PLUS                 décalage et aller à l'état 86
     MOINS                décalage et aller à l'état 87
-=======
-   85 expression_bool: expression_bool . ET eb1
-   86                | expression_bool . OU eb1
-   90 eb2: PARENTHESE_OUVRANTE expression_bool . PARENTHESE_FERMANTE
-
-    ET                   décalage et aller à l'état 89
-    OU                   décalage et aller à l'état 90
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     PARENTHESE_FERMANTE  décalage et aller à l'état 121
 
 
 état 80
 
-<<<<<<< HEAD
    87 expression_bool: expression_bool . ET eb1
    88                | expression_bool . OU eb1
    92 eb2: PARENTHESE_OUVRANTE expression_bool . PARENTHESE_FERMANTE
@@ -1728,30 +1215,11 @@ expression_comp (108)
     ET                   décalage et aller à l'état 90
     OU                   décalage et aller à l'état 91
     PARENTHESE_FERMANTE  décalage et aller à l'état 122
-=======
-   94 expression_comp: expression_arith INF . expression_arith
-
-    MOINS                décalage et aller à l'état 39
-    PARENTHESE_OUVRANTE  décalage et aller à l'état 96
-    CSTE_ENTIERE         décalage et aller à l'état 41
-    IDF                  décalage et aller à l'état 21
-    CSTE_REEL            décalage et aller à l'état 42
-
-    appel             aller à l'état 43
-    variable          aller à l'état 44
-    expression_arith  aller à l'état 122
-    exp1              aller à l'état 46
-    exp2              aller à l'état 47
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 81
 
-<<<<<<< HEAD
    96 expression_comp: expression_arith INF . expression_arith
-=======
-   95 expression_comp: expression_arith INF_EGAL . expression_arith
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -1768,11 +1236,7 @@ expression_comp (108)
 
 état 82
 
-<<<<<<< HEAD
    97 expression_comp: expression_arith INF_EGAL . expression_arith
-=======
-   96 expression_comp: expression_arith SUP . expression_arith
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -1789,11 +1253,7 @@ expression_comp (108)
 
 état 83
 
-<<<<<<< HEAD
    98 expression_comp: expression_arith SUP . expression_arith
-=======
-   97 expression_comp: expression_arith SUP_EGAL . expression_arith
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -1810,11 +1270,7 @@ expression_comp (108)
 
 état 84
 
-<<<<<<< HEAD
    99 expression_comp: expression_arith SUP_EGAL . expression_arith
-=======
-   98 expression_comp: expression_arith EGAL . expression_arith
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -1831,11 +1287,7 @@ expression_comp (108)
 
 état 85
 
-<<<<<<< HEAD
   100 expression_comp: expression_arith EGAL . expression_arith
-=======
-   72 expression_arith: expression_arith PLUS . exp1
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -1843,27 +1295,16 @@ expression_comp (108)
     IDF                  décalage et aller à l'état 21
     CSTE_REEL            décalage et aller à l'état 42
 
-<<<<<<< HEAD
     appel             aller à l'état 43
     variable          aller à l'état 44
     expression_arith  aller à l'état 127
     exp1              aller à l'état 46
     exp2              aller à l'état 47
-=======
-    appel     aller à l'état 43
-    variable  aller à l'état 44
-    exp1      aller à l'état 127
-    exp2      aller à l'état 47
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 86
 
-<<<<<<< HEAD
    74 expression_arith: expression_arith PLUS . exp1
-=======
-   73 expression_arith: expression_arith MOINS . exp1
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -1879,11 +1320,7 @@ expression_comp (108)
 
 état 87
 
-<<<<<<< HEAD
    75 expression_arith: expression_arith MOINS . exp1
-=======
-   76 exp1: exp1 DIV . exp2
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -1893,21 +1330,13 @@ expression_comp (108)
 
     appel     aller à l'état 43
     variable  aller à l'état 44
-<<<<<<< HEAD
     exp1      aller à l'état 129
     exp2      aller à l'état 47
-=======
-    exp2      aller à l'état 129
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 88
 
-<<<<<<< HEAD
    78 exp1: exp1 DIV . exp2
-=======
-   75 exp1: exp1 MULT . exp2
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -1922,7 +1351,6 @@ expression_comp (108)
 
 état 89
 
-<<<<<<< HEAD
    77 exp1: exp1 MULT . exp2
 
     MOINS                décalage et aller à l'état 39
@@ -1939,9 +1367,6 @@ expression_comp (108)
 état 90
 
    87 expression_bool: expression_bool ET . eb1
-=======
-   85 expression_bool: expression_bool ET . eb1
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     NON                  décalage et aller à l'état 36
     VRAI                 décalage et aller à l'état 37
@@ -1957,24 +1382,14 @@ expression_comp (108)
     expression_arith  aller à l'état 45
     exp1              aller à l'état 46
     exp2              aller à l'état 47
-<<<<<<< HEAD
     eb1               aller à l'état 132
-=======
-    eb1               aller à l'état 131
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     eb2               aller à l'état 50
     expression_comp   aller à l'état 51
 
 
-<<<<<<< HEAD
 état 91
 
    88 expression_bool: expression_bool OU . eb1
-=======
-état 90
-
-   86 expression_bool: expression_bool OU . eb1
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     NON                  décalage et aller à l'état 36
     VRAI                 décalage et aller à l'état 37
@@ -1990,20 +1405,12 @@ expression_comp (108)
     expression_arith  aller à l'état 45
     exp1              aller à l'état 46
     exp2              aller à l'état 47
-<<<<<<< HEAD
     eb1               aller à l'état 133
-=======
-    eb1               aller à l'état 132
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     eb2               aller à l'état 50
     expression_comp   aller à l'état 51
 
 
-<<<<<<< HEAD
 état 92
-=======
-état 91
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    56 condition: SI expression_bool ALORS . suite_liste_inst SINON suite_liste_inst FINSI
    57          | SI expression_bool ALORS . suite_liste_inst FINSI
@@ -2014,11 +1421,7 @@ expression_comp (108)
     VIDE      décalage et aller à l'état 20
     IDF       décalage et aller à l'état 21
 
-<<<<<<< HEAD
     suite_liste_inst  aller à l'état 134
-=======
-    suite_liste_inst  aller à l'état 133
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     instruction       aller à l'état 23
     appel             aller à l'état 24
     condition         aller à l'état 25
@@ -2027,11 +1430,7 @@ expression_comp (108)
     variable          aller à l'état 28
 
 
-<<<<<<< HEAD
 état 93
-=======
-état 92
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    58 tant_que: TANT_QUE expression_bool FAIRE . suite_liste_inst END_TANT_QUE
 
@@ -2041,11 +1440,7 @@ expression_comp (108)
     VIDE      décalage et aller à l'état 20
     IDF       décalage et aller à l'état 21
 
-<<<<<<< HEAD
     suite_liste_inst  aller à l'état 135
-=======
-    suite_liste_inst  aller à l'état 134
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     instruction       aller à l'état 23
     appel             aller à l'état 24
     condition         aller à l'état 25
@@ -2054,7 +1449,6 @@ expression_comp (108)
     variable          aller à l'état 28
 
 
-<<<<<<< HEAD
 état 94
 
    73 concat: concat PLUS . CSTE_CHAINE
@@ -2073,42 +1467,11 @@ expression_comp (108)
     $défaut  réduction par utilisation de la règle 66 (liste_champs_var)
 
     liste_champs_var  aller à l'état 137
-=======
-état 93
-
-   71 concat: concat PLUS . CSTE_CHAINE
-
-    CSTE_CHAINE  décalage et aller à l'état 135
-
-
-état 94
-
-   60 variable: IDF . CROCHET_OUVRANT liste_ind CROCHET_FERMANT liste_champs_var
-   61         | IDF . liste_champs_var
-
-    POINT            décalage et aller à l'état 60
-    CROCHET_OUVRANT  décalage et aller à l'état 61
-
-    $défaut  réduction par utilisation de la règle 64 (liste_champs_var)
-
-    liste_champs_var  aller à l'état 64
-
-
-état 95
-
-   65 liste_champs_var: POINT variable .
-
-    $défaut  réduction par utilisation de la règle 65 (liste_champs_var)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 96
 
-<<<<<<< HEAD
    80 exp2: PARENTHESE_OUVRANTE . expression_arith PARENTHESE_FERMANTE
-=======
-   78 exp2: PARENTHESE_OUVRANTE . expression_arith PARENTHESE_FERMANTE
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -2118,31 +1481,20 @@ expression_comp (108)
 
     appel             aller à l'état 43
     variable          aller à l'état 44
-<<<<<<< HEAD
     expression_arith  aller à l'état 138
-=======
-    expression_arith  aller à l'état 136
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     exp1              aller à l'état 46
     exp2              aller à l'état 47
 
 
 état 97
 
-<<<<<<< HEAD
    62 variable_suite: CROCHET_OUVRANT liste_ind . CROCHET_FERMANT variable_suite
 
     CROCHET_FERMANT  décalage et aller à l'état 139
-=======
-   60 variable: IDF CROCHET_OUVRANT liste_ind . CROCHET_FERMANT liste_champs_var
-
-    CROCHET_FERMANT  décalage et aller à l'état 137
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 98
 
-<<<<<<< HEAD
    64 liste_ind: expression_arith .
    65          | expression_arith . VIRGULE liste_ind
    74 expression_arith: expression_arith . PLUS exp1
@@ -2153,29 +1505,13 @@ expression_comp (108)
     MOINS    décalage et aller à l'état 87
 
     $défaut  réduction par utilisation de la règle 64 (liste_ind)
-=======
-   62 liste_ind: expression_arith .
-   63          | expression_arith . VIRGULE liste_ind
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-
-    VIRGULE  décalage et aller à l'état 138
-    PLUS     décalage et aller à l'état 85
-    MOINS    décalage et aller à l'état 86
-
-    $défaut  réduction par utilisation de la règle 62 (liste_ind)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 99
 
    51 liste_arguments: PARENTHESE_OUVRANTE liste_args . PARENTHESE_FERMANTE
 
-<<<<<<< HEAD
     PARENTHESE_FERMANTE  décalage et aller à l'état 141
-=======
-    PARENTHESE_FERMANTE  décalage et aller à l'état 139
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 100
@@ -2183,11 +1519,7 @@ expression_comp (108)
    53 liste_args: un_arg .
    54           | un_arg . VIRGULE liste_args
 
-<<<<<<< HEAD
     VIRGULE  décalage et aller à l'état 142
-=======
-    VIRGULE  décalage et aller à l'état 140
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     $défaut  réduction par utilisation de la règle 53 (liste_args)
 
@@ -2201,7 +1533,6 @@ expression_comp (108)
 
 état 102
 
-<<<<<<< HEAD
    63 variable_suite: liste_champs_var variable_suite .
 
     $défaut  réduction par utilisation de la règle 63 (variable_suite)
@@ -2209,25 +1540,18 @@ expression_comp (108)
 
 état 103
 
-=======
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     9 suite_liste_inst: instruction POINT_VIRGULE suite_liste_inst .
 
     $défaut  réduction par utilisation de la règle 9 (suite_liste_inst)
 
 
-<<<<<<< HEAD
 état 104
-=======
-état 103
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    59 affectation: variable OPAFF expression .
 
     $défaut  réduction par utilisation de la règle 59 (affectation)
 
 
-<<<<<<< HEAD
 état 105
 
    41 un_param: IDF . DEUX_POINTS type_simple
@@ -2236,44 +1560,22 @@ expression_comp (108)
 
 
 état 106
-=======
-état 104
-
-   41 un_param: IDF . DEUX_POINTS type_simple
-
-    DEUX_POINTS  décalage et aller à l'état 141
-
-
-état 105
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    37 liste_parametres: PARENTHESE_OUVRANTE liste_param . PARENTHESE_FERMANTE
    40 liste_param: liste_param . VIRGULE un_param
 
-<<<<<<< HEAD
     VIRGULE              décalage et aller à l'état 144
     PARENTHESE_FERMANTE  décalage et aller à l'état 145
 
 
 état 107
-=======
-    VIRGULE              décalage et aller à l'état 142
-    PARENTHESE_FERMANTE  décalage et aller à l'état 143
-
-
-état 106
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    39 liste_param: un_param .
 
     $défaut  réduction par utilisation de la règle 39 (liste_param)
 
 
-<<<<<<< HEAD
 état 108
-=======
-état 107
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    34 declaration_procedure: PROCEDURE IDF liste_parametres $@1 . corps
 
@@ -2285,11 +1587,7 @@ expression_comp (108)
 
     $défaut  réduction par utilisation de la règle 2 (corps)
 
-<<<<<<< HEAD
     corps                  aller à l'état 146
-=======
-    corps                  aller à l'état 144
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     liste_declarations     aller à l'état 9
     liste_instructions     aller à l'état 10
     declaration            aller à l'état 11
@@ -2299,7 +1597,6 @@ expression_comp (108)
     declaration_fonction   aller à l'état 15
 
 
-<<<<<<< HEAD
 état 109
 
    36 declaration_fonction: FONCTION IDF liste_parametres RETOURNE . type_simple $@2 corps
@@ -2314,51 +1611,26 @@ expression_comp (108)
 
 
 état 110
-=======
-état 108
-
-   36 declaration_fonction: FONCTION IDF liste_parametres RETOURNE . type_simple $@2 corps
-
-    ENTIER     décalage et aller à l'état 109
-    REEL       décalage et aller à l'état 110
-    CARACTERE  décalage et aller à l'état 111
-    CHAINE     décalage et aller à l'état 112
-    BOOLEEN    décalage et aller à l'état 113
-
-    type_simple  aller à l'état 145
-
-
-état 109
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    25 type_simple: ENTIER .
 
     $défaut  réduction par utilisation de la règle 25 (type_simple)
 
 
-<<<<<<< HEAD
 état 111
-=======
-état 110
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    26 type_simple: REEL .
 
     $défaut  réduction par utilisation de la règle 26 (type_simple)
 
 
-<<<<<<< HEAD
 état 112
-=======
-état 111
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    28 type_simple: CARACTERE .
 
     $défaut  réduction par utilisation de la règle 28 (type_simple)
 
 
-<<<<<<< HEAD
 état 113
 
    29 type_simple: CHAINE . CROCHET_OUVRANT CSTE_ENTIERE CROCHET_FERMANT
@@ -2367,67 +1639,40 @@ expression_comp (108)
 
 
 état 114
-=======
-état 112
-
-   29 type_simple: CHAINE . CROCHET_OUVRANT CSTE_ENTIERE CROCHET_FERMANT
-
-    CROCHET_OUVRANT  décalage et aller à l'état 146
-
-
-état 113
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    27 type_simple: BOOLEEN .
 
     $défaut  réduction par utilisation de la règle 27 (type_simple)
 
 
-<<<<<<< HEAD
 état 115
-=======
-état 114
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    24 nom_type: IDF .
 
     $défaut  réduction par utilisation de la règle 24 (nom_type)
 
 
-<<<<<<< HEAD
 état 116
-=======
-état 115
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    31 suite_declaration_variable: IDF DEUX_POINTS nom_type .
 
     $défaut  réduction par utilisation de la règle 31 (suite_declaration_variable)
 
 
-<<<<<<< HEAD
 état 117
-=======
-état 116
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    23 nom_type: type_simple .
 
     $défaut  réduction par utilisation de la règle 23 (nom_type)
 
 
-<<<<<<< HEAD
 état 118
-=======
-état 117
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    32 suite_declaration_variable: IDF VIRGULE suite_declaration_variable .
 
     $défaut  réduction par utilisation de la règle 32 (suite_declaration_variable)
 
 
-<<<<<<< HEAD
 état 119
 
    15 declaration_type: TYPE IDF DEUX_POINTS TABLEAU . dimension DE nom_type
@@ -2445,68 +1690,24 @@ expression_comp (108)
 
     liste_champs  aller à l'état 152
     un_champ      aller à l'état 153
-=======
-état 118
-
-   15 declaration_type: TYPE IDF DEUX_POINTS TABLEAU . dimension DE nom_type
-
-    CROCHET_OUVRANT  décalage et aller à l'état 147
-
-    dimension  aller à l'état 148
-
-
-état 119
-
-   14 declaration_type: TYPE IDF DEUX_POINTS STRUCT . liste_champs FSTRUCT
-
-    IDF  décalage et aller à l'état 149
-
-    liste_champs  aller à l'état 150
-    un_champ      aller à l'état 151
-
-
-état 120
-
-   78 exp2: PARENTHESE_OUVRANTE expression_arith PARENTHESE_FERMANTE .
-
-    $défaut  réduction par utilisation de la règle 78 (exp2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 121
 
-<<<<<<< HEAD
    80 exp2: PARENTHESE_OUVRANTE expression_arith PARENTHESE_FERMANTE .
 
     $défaut  réduction par utilisation de la règle 80 (exp2)
-=======
-   90 eb2: PARENTHESE_OUVRANTE expression_bool PARENTHESE_FERMANTE .
-
-    $défaut  réduction par utilisation de la règle 90 (eb2)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 122
 
-<<<<<<< HEAD
    92 eb2: PARENTHESE_OUVRANTE expression_bool PARENTHESE_FERMANTE .
 
     $défaut  réduction par utilisation de la règle 92 (eb2)
-=======
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-   94 expression_comp: expression_arith INF expression_arith .
-
-    PLUS   décalage et aller à l'état 85
-    MOINS  décalage et aller à l'état 86
-
-    $défaut  réduction par utilisation de la règle 94 (expression_comp)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 123
 
-<<<<<<< HEAD
    74 expression_arith: expression_arith . PLUS exp1
    75                 | expression_arith . MOINS exp1
    96 expression_comp: expression_arith INF expression_arith .
@@ -2515,21 +1716,10 @@ expression_comp (108)
     MOINS  décalage et aller à l'état 87
 
     $défaut  réduction par utilisation de la règle 96 (expression_comp)
-=======
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-   95 expression_comp: expression_arith INF_EGAL expression_arith .
-
-    PLUS   décalage et aller à l'état 85
-    MOINS  décalage et aller à l'état 86
-
-    $défaut  réduction par utilisation de la règle 95 (expression_comp)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 124
 
-<<<<<<< HEAD
    74 expression_arith: expression_arith . PLUS exp1
    75                 | expression_arith . MOINS exp1
    97 expression_comp: expression_arith INF_EGAL expression_arith .
@@ -2538,21 +1728,10 @@ expression_comp (108)
     MOINS  décalage et aller à l'état 87
 
     $défaut  réduction par utilisation de la règle 97 (expression_comp)
-=======
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-   96 expression_comp: expression_arith SUP expression_arith .
-
-    PLUS   décalage et aller à l'état 85
-    MOINS  décalage et aller à l'état 86
-
-    $défaut  réduction par utilisation de la règle 96 (expression_comp)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 125
 
-<<<<<<< HEAD
    74 expression_arith: expression_arith . PLUS exp1
    75                 | expression_arith . MOINS exp1
    98 expression_comp: expression_arith SUP expression_arith .
@@ -2561,21 +1740,10 @@ expression_comp (108)
     MOINS  décalage et aller à l'état 87
 
     $défaut  réduction par utilisation de la règle 98 (expression_comp)
-=======
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-   97 expression_comp: expression_arith SUP_EGAL expression_arith .
-
-    PLUS   décalage et aller à l'état 85
-    MOINS  décalage et aller à l'état 86
-
-    $défaut  réduction par utilisation de la règle 97 (expression_comp)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 126
 
-<<<<<<< HEAD
    74 expression_arith: expression_arith . PLUS exp1
    75                 | expression_arith . MOINS exp1
    99 expression_comp: expression_arith SUP_EGAL expression_arith .
@@ -2584,21 +1752,10 @@ expression_comp (108)
     MOINS  décalage et aller à l'état 87
 
     $défaut  réduction par utilisation de la règle 99 (expression_comp)
-=======
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-   98 expression_comp: expression_arith EGAL expression_arith .
-
-    PLUS   décalage et aller à l'état 85
-    MOINS  décalage et aller à l'état 86
-
-    $défaut  réduction par utilisation de la règle 98 (expression_comp)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 127
 
-<<<<<<< HEAD
    74 expression_arith: expression_arith . PLUS exp1
    75                 | expression_arith . MOINS exp1
   100 expression_comp: expression_arith EGAL expression_arith .
@@ -2607,21 +1764,10 @@ expression_comp (108)
     MOINS  décalage et aller à l'état 87
 
     $défaut  réduction par utilisation de la règle 100 (expression_comp)
-=======
-   72 expression_arith: expression_arith PLUS exp1 .
-   75 exp1: exp1 . MULT exp2
-   76     | exp1 . DIV exp2
-
-    DIV   décalage et aller à l'état 87
-    MULT  décalage et aller à l'état 88
-
-    $défaut  réduction par utilisation de la règle 72 (expression_arith)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 128
 
-<<<<<<< HEAD
    74 expression_arith: expression_arith PLUS exp1 .
    77 exp1: exp1 . MULT exp2
    78     | exp1 . DIV exp2
@@ -2630,21 +1776,10 @@ expression_comp (108)
     MULT  décalage et aller à l'état 89
 
     $défaut  réduction par utilisation de la règle 74 (expression_arith)
-=======
-   73 expression_arith: expression_arith MOINS exp1 .
-   75 exp1: exp1 . MULT exp2
-   76     | exp1 . DIV exp2
-
-    DIV   décalage et aller à l'état 87
-    MULT  décalage et aller à l'état 88
-
-    $défaut  réduction par utilisation de la règle 73 (expression_arith)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 129
 
-<<<<<<< HEAD
    75 expression_arith: expression_arith MOINS exp1 .
    77 exp1: exp1 . MULT exp2
    78     | exp1 . DIV exp2
@@ -2653,115 +1788,61 @@ expression_comp (108)
     MULT  décalage et aller à l'état 89
 
     $défaut  réduction par utilisation de la règle 75 (expression_arith)
-=======
-   76 exp1: exp1 DIV exp2 .
-
-    $défaut  réduction par utilisation de la règle 76 (exp1)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 130
 
-<<<<<<< HEAD
    78 exp1: exp1 DIV exp2 .
 
     $défaut  réduction par utilisation de la règle 78 (exp1)
-=======
-   75 exp1: exp1 MULT exp2 .
-
-    $défaut  réduction par utilisation de la règle 75 (exp1)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 131
 
-<<<<<<< HEAD
    77 exp1: exp1 MULT exp2 .
 
     $défaut  réduction par utilisation de la règle 77 (exp1)
-=======
-   85 expression_bool: expression_bool ET eb1 .
-
-    $défaut  réduction par utilisation de la règle 85 (expression_bool)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 132
 
-<<<<<<< HEAD
    87 expression_bool: expression_bool ET eb1 .
 
     $défaut  réduction par utilisation de la règle 87 (expression_bool)
-=======
-   86 expression_bool: expression_bool OU eb1 .
-
-    $défaut  réduction par utilisation de la règle 86 (expression_bool)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 133
 
-<<<<<<< HEAD
    88 expression_bool: expression_bool OU eb1 .
 
     $défaut  réduction par utilisation de la règle 88 (expression_bool)
-=======
-   56 condition: SI expression_bool ALORS suite_liste_inst . SINON suite_liste_inst FINSI
-   57          | SI expression_bool ALORS suite_liste_inst . FINSI
-
-    FINSI  décalage et aller à l'état 152
-    SINON  décalage et aller à l'état 153
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 134
 
-<<<<<<< HEAD
    56 condition: SI expression_bool ALORS suite_liste_inst . SINON suite_liste_inst FINSI
    57          | SI expression_bool ALORS suite_liste_inst . FINSI
 
     FINSI  décalage et aller à l'état 154
     SINON  décalage et aller à l'état 155
-=======
-   58 tant_que: TANT_QUE expression_bool FAIRE suite_liste_inst . END_TANT_QUE
-
-    END_TANT_QUE  décalage et aller à l'état 154
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 135
 
-<<<<<<< HEAD
    58 tant_que: TANT_QUE expression_bool FAIRE suite_liste_inst . END_TANT_QUE
 
     END_TANT_QUE  décalage et aller à l'état 156
-=======
-   71 concat: concat PLUS CSTE_CHAINE .
-
-    $défaut  réduction par utilisation de la règle 71 (concat)
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 136
 
-<<<<<<< HEAD
    73 concat: concat PLUS CSTE_CHAINE .
 
     $défaut  réduction par utilisation de la règle 73 (concat)
-=======
-   72 expression_arith: expression_arith . PLUS exp1
-   73                 | expression_arith . MOINS exp1
-   78 exp2: PARENTHESE_OUVRANTE expression_arith . PARENTHESE_FERMANTE
-
-    PLUS                 décalage et aller à l'état 85
-    MOINS                décalage et aller à l'état 86
-    PARENTHESE_FERMANTE  décalage et aller à l'état 120
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 
 état 137
 
-<<<<<<< HEAD
    67 liste_champs_var: POINT IDF liste_champs_var .
 
     $défaut  réduction par utilisation de la règle 67 (liste_champs_var)
@@ -2794,20 +1875,6 @@ expression_comp (108)
 état 140
 
    65 liste_ind: expression_arith VIRGULE . liste_ind
-=======
-   60 variable: IDF CROCHET_OUVRANT liste_ind CROCHET_FERMANT . liste_champs_var
-
-    POINT  décalage et aller à l'état 60
-
-    $défaut  réduction par utilisation de la règle 64 (liste_champs_var)
-
-    liste_champs_var  aller à l'état 155
-
-
-état 138
-
-   63 liste_ind: expression_arith VIRGULE . liste_ind
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
     MOINS                décalage et aller à l'état 39
     PARENTHESE_OUVRANTE  décalage et aller à l'état 96
@@ -2817,32 +1884,20 @@ expression_comp (108)
 
     appel             aller à l'état 43
     variable          aller à l'état 44
-<<<<<<< HEAD
     liste_ind         aller à l'état 158
-=======
-    liste_ind         aller à l'état 156
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     expression_arith  aller à l'état 98
     exp1              aller à l'état 46
     exp2              aller à l'état 47
 
 
-<<<<<<< HEAD
 état 141
-=======
-état 139
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    51 liste_arguments: PARENTHESE_OUVRANTE liste_args PARENTHESE_FERMANTE .
 
     $défaut  réduction par utilisation de la règle 51 (liste_arguments)
 
 
-<<<<<<< HEAD
 état 142
-=======
-état 140
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    54 liste_args: un_arg VIRGULE . liste_args
 
@@ -2860,11 +1915,7 @@ expression_comp (108)
     $défaut  réduction par utilisation de la règle 52 (liste_args)
 
     appel             aller à l'état 43
-<<<<<<< HEAD
     liste_args        aller à l'état 159
-=======
-    liste_args        aller à l'état 157
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     un_arg            aller à l'état 100
     variable          aller à l'état 44
     expression        aller à l'état 101
@@ -2878,7 +1929,6 @@ expression_comp (108)
     expression_comp   aller à l'état 51
 
 
-<<<<<<< HEAD
 état 143
 
    41 un_param: IDF DEUX_POINTS . type_simple
@@ -2902,59 +1952,25 @@ expression_comp (108)
 
 
 état 145
-=======
-état 141
-
-   41 un_param: IDF DEUX_POINTS . type_simple
-
-    ENTIER     décalage et aller à l'état 109
-    REEL       décalage et aller à l'état 110
-    CARACTERE  décalage et aller à l'état 111
-    CHAINE     décalage et aller à l'état 112
-    BOOLEEN    décalage et aller à l'état 113
-
-    type_simple  aller à l'état 158
-
-
-état 142
-
-   40 liste_param: liste_param VIRGULE . un_param
-
-    IDF  décalage et aller à l'état 104
-
-    un_param  aller à l'état 159
-
-
-état 143
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    37 liste_parametres: PARENTHESE_OUVRANTE liste_param PARENTHESE_FERMANTE .
 
     $défaut  réduction par utilisation de la règle 37 (liste_parametres)
 
 
-<<<<<<< HEAD
 état 146
-=======
-état 144
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    34 declaration_procedure: PROCEDURE IDF liste_parametres $@1 corps .
 
     $défaut  réduction par utilisation de la règle 34 (declaration_procedure)
 
 
-<<<<<<< HEAD
 état 147
-=======
-état 145
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    36 declaration_fonction: FONCTION IDF liste_parametres RETOURNE type_simple . $@2 corps
 
     $défaut  réduction par utilisation de la règle 35 ($@2)
 
-<<<<<<< HEAD
     $@2  aller à l'état 162
 
 
@@ -2997,76 +2013,21 @@ expression_comp (108)
 
 
 état 153
-=======
-    $@2  aller à l'état 160
-
-
-état 146
-
-   29 type_simple: CHAINE CROCHET_OUVRANT . CSTE_ENTIERE CROCHET_FERMANT
-
-    CSTE_ENTIERE  décalage et aller à l'état 161
-
-
-état 147
-
-   16 dimension: CROCHET_OUVRANT . liste_dimensions CROCHET_FERMANT
-
-    CSTE_ENTIERE  décalage et aller à l'état 162
-
-    liste_dimensions  aller à l'état 163
-    une_dimension     aller à l'état 164
-
-
-état 148
-
-   15 declaration_type: TYPE IDF DEUX_POINTS TABLEAU dimension . DE nom_type
-
-    DE  décalage et aller à l'état 165
-
-
-état 149
-
-   22 un_champ: IDF . DEUX_POINTS nom_type
-
-    DEUX_POINTS  décalage et aller à l'état 166
-
-
-état 150
-
-   14 declaration_type: TYPE IDF DEUX_POINTS STRUCT liste_champs . FSTRUCT
-
-    FSTRUCT  décalage et aller à l'état 167
-
-
-état 151
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    20 liste_champs: un_champ . POINT_VIRGULE
    21             | un_champ . POINT_VIRGULE liste_champs
 
-<<<<<<< HEAD
     POINT_VIRGULE  décalage et aller à l'état 170
 
 
 état 154
-=======
-    POINT_VIRGULE  décalage et aller à l'état 168
-
-
-état 152
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    57 condition: SI expression_bool ALORS suite_liste_inst FINSI .
 
     $défaut  réduction par utilisation de la règle 57 (condition)
 
 
-<<<<<<< HEAD
 état 155
-=======
-état 153
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    56 condition: SI expression_bool ALORS suite_liste_inst SINON . suite_liste_inst FINSI
 
@@ -3076,11 +2037,7 @@ expression_comp (108)
     VIDE      décalage et aller à l'état 20
     IDF       décalage et aller à l'état 21
 
-<<<<<<< HEAD
     suite_liste_inst  aller à l'état 171
-=======
-    suite_liste_inst  aller à l'état 169
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     instruction       aller à l'état 23
     appel             aller à l'état 24
     condition         aller à l'état 25
@@ -3089,18 +2046,13 @@ expression_comp (108)
     variable          aller à l'état 28
 
 
-<<<<<<< HEAD
 état 156
-=======
-état 154
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    58 tant_que: TANT_QUE expression_bool FAIRE suite_liste_inst END_TANT_QUE .
 
     $défaut  réduction par utilisation de la règle 58 (tant_que)
 
 
-<<<<<<< HEAD
 état 157
 
    62 variable_suite: CROCHET_OUVRANT liste_ind CROCHET_FERMANT variable_suite .
@@ -3116,56 +2068,27 @@ expression_comp (108)
 
 
 état 159
-=======
-état 155
-
-   60 variable: IDF CROCHET_OUVRANT liste_ind CROCHET_FERMANT liste_champs_var .
-
-    $défaut  réduction par utilisation de la règle 60 (variable)
-
-
-état 156
-
-   63 liste_ind: expression_arith VIRGULE liste_ind .
-
-    $défaut  réduction par utilisation de la règle 63 (liste_ind)
-
-
-état 157
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    54 liste_args: un_arg VIRGULE liste_args .
 
     $défaut  réduction par utilisation de la règle 54 (liste_args)
 
 
-<<<<<<< HEAD
 état 160
-=======
-état 158
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    41 un_param: IDF DEUX_POINTS type_simple .
 
     $défaut  réduction par utilisation de la règle 41 (un_param)
 
 
-<<<<<<< HEAD
 état 161
-=======
-état 159
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    40 liste_param: liste_param VIRGULE un_param .
 
     $défaut  réduction par utilisation de la règle 40 (liste_param)
 
 
-<<<<<<< HEAD
 état 162
-=======
-état 160
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    36 declaration_fonction: FONCTION IDF liste_parametres RETOURNE type_simple $@2 . corps
 
@@ -3177,11 +2100,7 @@ expression_comp (108)
 
     $défaut  réduction par utilisation de la règle 2 (corps)
 
-<<<<<<< HEAD
     corps                  aller à l'état 172
-=======
-    corps                  aller à l'état 170
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
     liste_declarations     aller à l'état 9
     liste_instructions     aller à l'état 10
     declaration            aller à l'état 11
@@ -3191,7 +2110,6 @@ expression_comp (108)
     declaration_fonction   aller à l'état 15
 
 
-<<<<<<< HEAD
 état 163
 
    29 type_simple: CHAINE CROCHET_OUVRANT CSTE_ENTIERE . CROCHET_FERMANT
@@ -3207,47 +2125,21 @@ expression_comp (108)
 
 
 état 165
-=======
-état 161
-
-   29 type_simple: CHAINE CROCHET_OUVRANT CSTE_ENTIERE . CROCHET_FERMANT
-
-    CROCHET_FERMANT  décalage et aller à l'état 171
-
-
-état 162
-
-   19 une_dimension: CSTE_ENTIERE . POINT_POINT CSTE_ENTIERE
-
-    POINT_POINT  décalage et aller à l'état 172
-
-
-état 163
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    16 dimension: CROCHET_OUVRANT liste_dimensions . CROCHET_FERMANT
    18 liste_dimensions: liste_dimensions . VIRGULE une_dimension
 
-<<<<<<< HEAD
     VIRGULE          décalage et aller à l'état 175
     CROCHET_FERMANT  décalage et aller à l'état 176
 
 
 état 166
-=======
-    VIRGULE          décalage et aller à l'état 173
-    CROCHET_FERMANT  décalage et aller à l'état 174
-
-
-état 164
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    17 liste_dimensions: une_dimension .
 
     $défaut  réduction par utilisation de la règle 17 (liste_dimensions)
 
 
-<<<<<<< HEAD
 état 167
 
    15 declaration_type: TYPE IDF DEUX_POINTS TABLEAU dimension DE . nom_type
@@ -3279,55 +2171,17 @@ expression_comp (108)
 
 
 état 169
-=======
-état 165
-
-   15 declaration_type: TYPE IDF DEUX_POINTS TABLEAU dimension DE . nom_type
-
-    ENTIER     décalage et aller à l'état 109
-    REEL       décalage et aller à l'état 110
-    CARACTERE  décalage et aller à l'état 111
-    CHAINE     décalage et aller à l'état 112
-    BOOLEEN    décalage et aller à l'état 113
-    IDF        décalage et aller à l'état 114
-
-    nom_type     aller à l'état 175
-    type_simple  aller à l'état 116
-
-
-état 166
-
-   22 un_champ: IDF DEUX_POINTS . nom_type
-
-    ENTIER     décalage et aller à l'état 109
-    REEL       décalage et aller à l'état 110
-    CARACTERE  décalage et aller à l'état 111
-    CHAINE     décalage et aller à l'état 112
-    BOOLEEN    décalage et aller à l'état 113
-    IDF        décalage et aller à l'état 114
-
-    nom_type     aller à l'état 176
-    type_simple  aller à l'état 116
-
-
-état 167
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    14 declaration_type: TYPE IDF DEUX_POINTS STRUCT liste_champs FSTRUCT .
 
     $défaut  réduction par utilisation de la règle 14 (declaration_type)
 
 
-<<<<<<< HEAD
 état 170
-=======
-état 168
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    20 liste_champs: un_champ POINT_VIRGULE .
    21             | un_champ POINT_VIRGULE . liste_champs
 
-<<<<<<< HEAD
     IDF  décalage et aller à l'état 151
 
     $défaut  réduction par utilisation de la règle 20 (liste_champs)
@@ -3344,42 +2198,19 @@ expression_comp (108)
 
 
 état 172
-=======
-    IDF  décalage et aller à l'état 149
-
-    $défaut  réduction par utilisation de la règle 20 (liste_champs)
-
-    liste_champs  aller à l'état 177
-    un_champ      aller à l'état 151
-
-
-état 169
-
-   56 condition: SI expression_bool ALORS suite_liste_inst SINON suite_liste_inst . FINSI
-
-    FINSI  décalage et aller à l'état 178
-
-
-état 170
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    36 declaration_fonction: FONCTION IDF liste_parametres RETOURNE type_simple $@2 corps .
 
     $défaut  réduction par utilisation de la règle 36 (declaration_fonction)
 
 
-<<<<<<< HEAD
 état 173
-=======
-état 171
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    29 type_simple: CHAINE CROCHET_OUVRANT CSTE_ENTIERE CROCHET_FERMANT .
 
     $défaut  réduction par utilisation de la règle 29 (type_simple)
 
 
-<<<<<<< HEAD
 état 174
 
    19 une_dimension: CSTE_ENTIERE POINT_POINT . CSTE_ENTIERE
@@ -3397,91 +2228,48 @@ expression_comp (108)
 
 
 état 176
-=======
-état 172
-
-   19 une_dimension: CSTE_ENTIERE POINT_POINT . CSTE_ENTIERE
-
-    CSTE_ENTIERE  décalage et aller à l'état 179
-
-
-état 173
-
-   18 liste_dimensions: liste_dimensions VIRGULE . une_dimension
-
-    CSTE_ENTIERE  décalage et aller à l'état 162
-
-    une_dimension  aller à l'état 180
-
-
-état 174
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    16 dimension: CROCHET_OUVRANT liste_dimensions CROCHET_FERMANT .
 
     $défaut  réduction par utilisation de la règle 16 (dimension)
 
 
-<<<<<<< HEAD
 état 177
-=======
-état 175
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    15 declaration_type: TYPE IDF DEUX_POINTS TABLEAU dimension DE nom_type .
 
     $défaut  réduction par utilisation de la règle 15 (declaration_type)
 
 
-<<<<<<< HEAD
 état 178
-=======
-état 176
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    22 un_champ: IDF DEUX_POINTS nom_type .
 
     $défaut  réduction par utilisation de la règle 22 (un_champ)
 
 
-<<<<<<< HEAD
 état 179
-=======
-état 177
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    21 liste_champs: un_champ POINT_VIRGULE liste_champs .
 
     $défaut  réduction par utilisation de la règle 21 (liste_champs)
 
 
-<<<<<<< HEAD
 état 180
-=======
-état 178
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    56 condition: SI expression_bool ALORS suite_liste_inst SINON suite_liste_inst FINSI .
 
     $défaut  réduction par utilisation de la règle 56 (condition)
 
 
-<<<<<<< HEAD
 état 181
-=======
-état 179
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    19 une_dimension: CSTE_ENTIERE POINT_POINT CSTE_ENTIERE .
 
     $défaut  réduction par utilisation de la règle 19 (une_dimension)
 
 
-<<<<<<< HEAD
 état 182
-=======
-état 180
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
    18 liste_dimensions: liste_dimensions VIRGULE une_dimension .
 
