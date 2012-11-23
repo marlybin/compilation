@@ -2,23 +2,34 @@
 #include <stdlib.h>
 #include "PileRegions.h"
 
-void initPile(){
+int indice=0;
+
+
+
+
+void empileRegion(int n){
+    PileRegion[indice] = n;
+    indice++;
 
 }
 
-void empile(int n){
+void depileRegion(){
+    if(PileRegion != NULL)
+        indice--;
 
 }
 
-void depile(){
-
-}
-
-int top(){
+int topRegion(){
+    if(PileRegion != NULL) return -1;
+    else 
+        return PileRegion[indice];
 
 }
 
 void affichePileRegion(){
+    int i;
+    for( i=0;i<indice;i++ ){
+        printf("%i | ",PileRegion[i]);
+    }
 
 }
-

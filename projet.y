@@ -318,7 +318,6 @@ int main(int argc, char* argv[]){
 	initTableRepType();
 	initRegions();
 	buffer_clear();
-	Table_region=initPile();
 	
 	yyparse(); // Lancement de lex/yacc
 

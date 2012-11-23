@@ -5,10 +5,10 @@
 
 int PileRegion[MAXREGION];
 
-void initPile();
-void empile(int n);
-void depile();
-int top();
+
+void empileRegion(int n);
+void depileRegion();
+int topRegion();
 
 void affichePileRegion();
 
