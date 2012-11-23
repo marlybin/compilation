@@ -19,11 +19,8 @@
 	extern char* yytext;
 
 	int counter = 0;
-<<<<<<< HEAD
 	int cregion = 0;
 	int niveauImbrication = 0;
-=======
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 %}
 
 %union{ double dval; int ival; char * sval; char cval; struct noeud * noeudval; }
@@ -50,20 +47,13 @@
 %type <ival> liste_param liste_parametres type_simple une_dimension dimension nom_type liste_dimensions liste_champs un_champ suite_declaration_variable 
 %type <noeudval> liste_instructions suite_liste_inst instruction corps programme condition tant_que liste_arguments liste_args un_arg resultat_retourne
 %type <noeudval> affectation expression expression_arith exp1 exp2 expression_bool eb1 eb2 appel concat expression_comp liste_champs_var liste_ind variable
-<<<<<<< HEAD
 %type <noeudval> variable_suite
-=======
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 %%
 
 programme :
-<<<<<<< HEAD
 		PROG corps { $$ = $2 ; 
 			insererRegion( 0,0,$2 ); /* empile(Table_region,cregion++);*/}
-=======
-		PROG  corps { $$ = $2 ; afficherArbre($$); }
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 		;
 
 corps  :
@@ -78,11 +68,7 @@ liste_declarations :
 		;
 
 liste_instructions :
-<<<<<<< HEAD
 		DEBUT suite_liste_inst FIN 	{ $$ = $2; }
-=======
-		DEBUT suite_liste_inst FIN { $$ = $2; }
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 		;
 	
 suite_liste_inst :
@@ -121,26 +107,16 @@ liste_dimensions :
 		;
 				
 une_dimension : 
-<<<<<<< HEAD
 		CSTE_ENTIERE POINT_POINT  CSTE_ENTIERE	{ buffer_ajoute2($1,$3); }
 		;
 
 liste_champs :
 		un_champ POINT_VIRGULE					{$$=1;}
 	    | un_champ POINT_VIRGULE  liste_champs 	{$$=$3+1;}
-=======
-		CSTE_ENTIERE POINT_POINT  CSTE_ENTIERE	{buffer_ajoute2($1,$3);}
-		;
-
-liste_champs :
-		un_champ POINT_VIRGULE	{$$=1;}
-	    | un_champ POINT_VIRGULE  liste_champs {$$=$3+1;}
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 	    ;
 
 un_champ :
 		IDF DEUX_POINTS nom_type	{ $1; buffer_ajoute3($1,$3,counter++); }
-<<<<<<< HEAD
 	 	;
 
 nom_type :
@@ -153,20 +129,6 @@ type_simple	:
 		| REEL													{ $$ = 1; }
 		| BOOLEEN												{ $$ = 2; }
 		| CARACTERE												{ $$ = 3; }
-=======
-		;
-
-nom_type :
-		type_simple { $$=$1; }
-		| IDF { $$=$1; }
-		;
-		
-type_simple	:
-		ENTIER			{ $$ = 0; }
-		| REEL			{ $$ = 1; }
-		| BOOLEEN		{ $$ = 2; }
-		| CARACTERE		{ $$ = 3; }
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 		| CHAINE CROCHET_OUVRANT CSTE_ENTIERE CROCHET_FERMANT	{ $$ = 0; }
 		;
 			
@@ -185,7 +147,6 @@ suite_declaration_variable	:
 		;
 
 declaration_procedure :
-<<<<<<< HEAD
 		PROCEDURE IDF liste_parametres { niveauImbrication++; } corps {
 			int description = ajoute_Proc($3, getBuf()); buffer_clear();
 			int region = insererRegion( 0,niveauImbrication,$5 );
@@ -201,19 +162,6 @@ declaration_fonction :
 			insererDeclaration( $2,FUNC,0,description,region );
 			niveauImbrication--;
 			}
-=======
-		PROCEDURE IDF liste_parametres {
-			int description = ajoute_Proc($3, getBuf()); buffer_clear();
-			insererDeclaration( $2,PROC,0,description,0 ); 
-			} corps
-		;
-			
-declaration_fonction :
-		FONCTION IDF liste_parametres RETOURNE type_simple {
-			int description = ajoute_Func($5, $3,getBuf()); buffer_clear();
-			insererDeclaration( $2,FUNC,0,description,0 ); 
-			} corps
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 		;
 
 liste_parametres :
@@ -222,39 +170,22 @@ liste_parametres :
 		;
 
 liste_param :
-<<<<<<< HEAD
 		un_param 							{$$=1;}
 	    | liste_param   VIRGULE  un_param	{$$=$1+1;}
 	    ;
 
 un_param :
 		IDF DEUX_POINTS type_simple 	{ buffer_ajoute2($1,$3);}
-=======
-		un_param {$$=1;}
-	    | liste_param   VIRGULE  un_param{$$=$1+1;}
-	    ;
-
-un_param :
-		IDF DEUX_POINTS type_simple { buffer_ajoute2($1,$3);}
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 	 ;
 
 /* PARTIE DES INSTRUCTIONS */
 
 instruction	:
-<<<<<<< HEAD
 		affectation							{$$ = $1;}
 	   	| condition							{$$ = $1;}
 	   	| tant_que							{$$ = $1;}
 	   	| appel								{$$ = $1;}
 	   	| VIDE								{$$ = creerNoeud( T_VIDE );}
-=======
-		affectation		{$$ = $1;}
-	   	| condition		{$$ = $1;}
-	   	| tant_que		{$$ = $1;}
-	   	| appel			{$$ = $1;}
-	   	| VIDE			{$$ = creerNoeud( T_VIDE );}
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 	   	| RETOURNE resultat_retourne		{$$ = ajouterFils(creerNoeud( T_RETOURNE ),$2);}
 	  	;
 
@@ -271,11 +202,7 @@ liste_arguments	:
 		PARENTHESE_OUVRANTE liste_args PARENTHESE_FERMANTE	{ $$ = $2; }
 		;
 				
-<<<<<<< HEAD
 liste_args : {$$=NULL;}
-=======
-liste_args : 
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 		| un_arg						{ $$ = $1; }
 		| un_arg VIRGULE liste_args		{ $$ = ajouterFrere( $1,$3 ); }
 		;
@@ -292,17 +219,12 @@ condition :
 tant_que :
 		TANT_QUE expression_bool FAIRE suite_liste_inst END_TANT_QUE			{ $$ = ajouterFils(creerNoeud(T_TANTQUE),ajouterFrere( $2, $4 )); }
 		;
-<<<<<<< HEAD
 
-=======
-			
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 affectation	:
 		variable OPAFF expression { $$ =  ajouterFils(creerNoeud( T_AFFECT ),ajouterFrere($1, $3 )); }
 		;
 
 /* CECI EST A VERIFIER */
-<<<<<<< HEAD
 variable :
 		IDF variable_suite	{ $$ = ajouterFils(creerNoeud_i( T_VAR,$1 ),$2); }
 		;
@@ -323,33 +245,13 @@ liste_champs_var :
 		| POINT IDF liste_champs_var		{ $$ = ajouterFrere( creerNoeud_i( T_STRUCT_ELEM,$2 ),$3 ); }
 		;
 
-=======
-variable: IDF CROCHET_OUVRANT liste_ind CROCHET_FERMANT liste_champs_var { $$ = creerNoeud_i( T_VAR,$1 ); }
-		| IDF liste_champs_var	{ $$ = creerNoeud_i( T_VAR,$1 ); }
-		;
-
-liste_ind	: expression_arith 					//{ $$ = creerNoeud_i( T_INDICE,$1 ); }
-	  	| expression_arith VIRGULE liste_ind	//{ $$ = ajouterFrere( creerNoeud_i( T_INDICE,$1 ),$3 ); }
-	  	;
-	
-liste_champs_var :
-		/* Vide*/			//{ $$ = NULL; }
-		| POINT variable 	//{ $$ = ajouterFils( creerNoeud( T_NSTR ),$2 ); }
-		;
-
-
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 expression	:
 		expression_arith	{ $$ = $1; }
 		| expression_bool	{ $$ = $1; }
 		| CSTE_CHAR			{ $$ = creerNoeud_c( T_CHAR,$1 ); }
 		| concat			{ $$ = $1; }
 		;
-<<<<<<< HEAD
 
-=======
-			
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 concat :
 		CSTE_CHAINE 				{ $$ = creerNoeud_s( T_CHAINE,$1 ); }
 		| concat PLUS CSTE_CHAINE 	{ $$ = ajouterFils( creerNoeud( T_CONCAT ),ajouterFrere( $1,creerNoeud_s( T_CHAINE, $3) )); }
@@ -390,17 +292,10 @@ eb1	:
 		;
 
 eb2	:
-<<<<<<< HEAD
 		PARENTHESE_OUVRANTE expression_bool PARENTHESE_FERMANTE 	{ $$ = $2; }
 		| VRAI 														{ $$ = creerNoeud_i( T_BOOL,1 ); }
 		| FAUX 														{ $$ = creerNoeud_i( T_BOOL,0 ); }
 		| expression_comp											{ $$ = $1; }
-=======
-		PARENTHESE_OUVRANTE expression_bool PARENTHESE_FERMANTE { $$ = $2; }
-		| VRAI 		{ $$ = creerNoeud_i( T_BOOL,1 ); }
-		| FAUX 		{ $$ = creerNoeud_i( T_BOOL,0 ); }
-		| expression_comp	{ $$ = $1; }
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 		;
 
 
@@ -416,20 +311,14 @@ expression_comp	:
 
 int main(int argc, char* argv[]){
 
-<<<<<<< HEAD
 	printf("\n\n");
 
-=======
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 	initTblLexeme();
 	initTblDeclaration();
 	initTableRepType();
 	initRegions();
 	buffer_clear();
-<<<<<<< HEAD
 	Table_region=initPile();
-=======
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 	
 	yyparse(); // Lancement de lex/yacc
 
@@ -437,15 +326,10 @@ int main(int argc, char* argv[]){
 
 	//afficheTableLexico();
 	//afficher_Tbl_Type();
-<<<<<<< HEAD
 	afficherTblDeclaration();
 	afficherTblRegions();
 	//affiche(Table_region);
 	printf("\n\n");
-=======
-	//afficherTblDeclaration();
-	//afficherTblRegions();
->>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 	return 0;
 }
