@@ -4,9 +4,6 @@
 
 int indice=0;
 
-
-
-
 void empileRegion(int n){
     PileRegion[indice] = n;
     indice++;
