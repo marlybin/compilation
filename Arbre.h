@@ -35,10 +35,17 @@
 #define T_ECRIRE 26
 #define T_RETOURNE 27
 
+<<<<<<< HEAD
 #define T_TABLE_ELEM 28
 #define T_STRUCT_ELEM 29
 #define T_LIST 30
 #define T_INDICE 31
+=======
+#define T_ITBL 28
+#define T_NSTR 29
+#define T_INDICE 30
+
+>>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
 
 /*
  * Déclaration des structures

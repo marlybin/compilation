@@ -171,7 +171,11 @@ typedef union YYSTYPE
 {
 
 /* Line 2068 of yacc.c  */
+<<<<<<< HEAD
 #line 26 "projet.y"
+=======
+#line 24 "projet.y"
+>>>>>>> 1eb6962c7f26755c779a8a421b48ea3e74592498
  double dval; int ival; char * sval; char cval; struct noeud * noeudval; 
 
 
