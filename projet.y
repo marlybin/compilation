@@ -137,30 +137,37 @@ declaration_variable :
 
 suite_declaration_variable	:
 		IDF DEUX_POINTS nom_type {
-							insererDeclaration( $1,VAR,0,$3,0 );
+							insererDeclaration( $1,VAR,topRegion(),$3,0 );
 							$$ = $3;
 							}
 		| IDF VIRGULE suite_declaration_variable {
-							insererDeclaration( $1,VAR,0,$3,0 );
+							insererDeclaration( $1,VAR,topRegion(),$3,0 );
 							$$ = $3;
 							}
 		;
 
 declaration_procedure :
-		PROCEDURE IDF liste_parametres { niveauImbrication++; } corps {
-			int description = ajoute_Proc($3, getBuf()); buffer_clear();
-			int region = insererRegion( 0,niveauImbrication,$5 );
-			insererDeclaration( $2,PROC,0,description,region );
+		PROCEDURE IDF liste_parametres { niveauImbrication++;empileRegion(insererRegion( 0,niveauImbrication,NULL )); } corps {
+			int description = ajoute_Proc($3, getBuf());
+			buffer_clear();
+			int region = topRegion(); // TESTER SI -1
+			TblRegions[region].tree = $5;
 			niveauImbrication--;
+			depileRegion();
+			insererDeclaration( $2,PROC,topRegion(),description,region );
 			}
 		;
 			
 declaration_fonction :
-		FONCTION IDF liste_parametres RETOURNE type_simple { niveauImbrication++; } corps {
-			int description = ajoute_Func($5, $3,getBuf()); buffer_clear();
-			int region = insererRegion( 0,niveauImbrication,$7 );
-			insererDeclaration( $2,FUNC,0,description,region );
+		FONCTION IDF liste_parametres RETOURNE type_simple { niveauImbrication++;empileRegion(insererRegion( 0,niveauImbrication,NULL )); } corps {
+			int description = ajoute_Func($5, $3,getBuf());
+			buffer_clear();
+			int region = topRegion(); // TESTER SI -1
+			TblRegions[region].tree = $7;
 			niveauImbrication--;
+			depileRegion();
+			//printf("La fonction est dans %i et correspond à %i\n",topRegion(),region);
+			insererDeclaration( $2,FUNC,topRegion(),description,region ); // TESTER SI topRegion-1
 			}
 		;
 
@@ -202,7 +209,8 @@ liste_arguments	:
 		PARENTHESE_OUVRANTE liste_args PARENTHESE_FERMANTE	{ $$ = $2; }
 		;
 				
-liste_args : {$$=NULL;}
+liste_args :
+										{ $$=NULL; }
 		| un_arg						{ $$ = $1; }
 		| un_arg VIRGULE liste_args		{ $$ = ajouterFrere( $1,$3 ); }
 		;
@@ -221,12 +229,12 @@ tant_que :
 		;
 
 affectation	:
-		variable OPAFF expression { $$ =  ajouterFils(creerNoeud( T_AFFECT ),ajouterFrere($1, $3 )); }
+		variable OPAFF expression 	{ $$ =  ajouterFils(creerNoeud( T_AFFECT ),ajouterFrere($1, $3 )); }
 		;
 
 /* CECI EST A VERIFIER */
 variable :
-		IDF variable_suite	{ $$ = ajouterFils(creerNoeud_i( T_VAR,$1 ),$2); }
+		IDF variable_suite			{ $$ = ajouterFils(creerNoeud_i( T_VAR,$1 ),$2); associationNom( $1 );  }
 		;
 
 variable_suite :
@@ -265,7 +273,7 @@ expression_arith :
  
 exp1:
 		exp1 MULT exp2			{ $$ = ajouterFils(creerNoeud( T_MULT ),ajouterFrere( $1 , $3 )); }
-		| exp1 DIV exp2			{ $$ =  ajouterFils(creerNoeud( T_DIV ),ajouterFrere( $1 , $3 )); }
+		| exp1 DIV exp2			{ $$ = ajouterFils(creerNoeud( T_DIV ),ajouterFrere( $1 , $3 )); }
 		| exp2 					{ $$ = $1; }
 		;
 
@@ -281,8 +289,8 @@ exp2:
 
 
 expression_bool	:
-		expression_bool ET eb1			 	{ $$ =  ajouterFils(creerNoeud( T_AND ),ajouterFrere( $1 , $3 ));  }
-		| expression_bool OU eb1   			{ $$ =  ajouterFils(creerNoeud( T_OR ),ajouterFrere( $1 , $3 ));  }
+		expression_bool ET eb1			 	{ $$ = ajouterFils(creerNoeud( T_AND ),ajouterFrere( $1 , $3 ));  }
+		| expression_bool OU eb1   			{ $$ = ajouterFils(creerNoeud( T_OR ),ajouterFrere( $1 , $3 ));  }
 		| eb1 								{ $$ = $1; }
 		;
 
@@ -318,15 +326,16 @@ int main(int argc, char* argv[]){
 	initTableRepType();
 	initRegions();
 	buffer_clear();
+	initPileRegion();
 	
 	yyparse(); // Lancement de lex/yacc
 
 	printf("\n\n");
 
-	//afficheTableLexico();
-	//afficher_Tbl_Type();
+	afficheTableLexico();
 	afficherTblDeclaration();
-	afficherTblRegions();
+	//afficher_Tbl_Type();
+	//afficherTblRegions();
 	//affiche(Table_region);
 	printf("\n\n");
 

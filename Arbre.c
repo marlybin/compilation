@@ -97,7 +97,7 @@ noeud * ajouterFrere( noeud * origin, noeud * frere ){
 void afficherArbre_( arbre * abr,int p ){
 
 	printf("(");
-	int i;
+	
 	while( abr != NULL ){
 
 		//printf("\n");

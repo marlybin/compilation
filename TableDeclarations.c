@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "TableLexico.h"
 #include "TableDeclarations.h"
 #include "PileRegions.h"
 
@@ -83,7 +84,28 @@ int insererDeclaration( int numLexico,int nature,int region, int desciption,int 
 	return 0;
 }
 
+/*
+ * Fonction qui pour un lexeme donné, cherche la déclaration correspondante
+ * La fonction utilise la pile des regions
+ */
 int associationNom( int numLexico ){
 
+	int numDecla = numLexico;
+	int regionCourante = topRegion();
 
+	while( tblDeclaration[numDecla].suivant!=-1 ) {
+		if( regionCourante==tblDeclaration[numDecla].region ){
+
+			printf("Trouvé à %i\n",numDecla);
+			return numLexico;
+		}
+		numDecla = tblDeclaration[numDecla].suivant;
+
+	}
+
+
+	printf("Pas trouvé :(\n");
+
+	//printf("\nOn cherche la déclaration de %s dans la region %i\n",tblLex[numLexico].lexeme,regionCourante);
+	return 0;
 }

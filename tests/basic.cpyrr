@@ -1,27 +1,18 @@
 program 
 
+	var tony : integer;
 
-
-
-	function rec return integer
+	function test return integer
 	begin
-		y:=10;
+		tony := 2;
+	end;
+
+	function test2 return integer
+	var tony : integer;
+	begin
+		tony := 2;
 	end;
 
 begin
-
-	while ( a<1 ) loop
-
-		a();
-
-	end loop;
-
-	if( a < 123 ) then 
-
-		x:= 4;
-	else
-
-		x:=6;
-	endif;
-
+	tony :=3;
 end

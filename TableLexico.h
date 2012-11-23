@@ -1,8 +1,8 @@
 #ifndef TABLELEXICO_H
 #define TABLELEXICO_H
 
-#define MAX 50
-#define H_LEN 5
+#define MAX 500
+#define H_LEN 30
 
 typedef struct lgnTblLex_s{
 	int longeur;

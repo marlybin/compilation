@@ -606,14 +606,14 @@ static const yytype_uint16 yyrline[] =
        0,    55,    55,    59,    60,    61,    65,    66,    70,    74,
       75,    81,    82,    83,    84,    88,    93,   100,   104,   105,
      109,   113,   114,   118,   122,   123,   127,   128,   129,   130,
-     131,   135,   139,   143,   150,   150,   159,   159,   168,   169,
-     173,   174,   178,   184,   185,   186,   187,   188,   189,   193,
-     194,   198,   202,   205,   206,   207,   211,   215,   216,   220,
-     224,   229,   233,   234,   235,   239,   240,   244,   245,   249,
-     250,   251,   252,   256,   257,   261,   262,   263,   267,   268,
-     269,   273,   274,   275,   276,   277,   278,   279,   284,   285,
-     286,   290,   291,   295,   296,   297,   298,   303,   304,   305,
-     306,   307
+     131,   135,   139,   143,   150,   150,   162,   162,   175,   176,
+     180,   181,   185,   191,   192,   193,   194,   195,   196,   200,
+     201,   205,   209,   213,   214,   215,   219,   223,   224,   228,
+     232,   237,   241,   242,   243,   247,   248,   252,   253,   257,
+     258,   259,   260,   264,   265,   269,   270,   271,   275,   276,
+     277,   281,   282,   283,   284,   285,   286,   287,   292,   293,
+     294,   298,   299,   303,   304,   305,   306,   311,   312,   313,
+     314,   315
 };
 #endif
 
@@ -1855,7 +1855,7 @@ yyreduce:
 /* Line 1806 of yacc.c  */
 #line 139 "projet.y"
     {
-							insererDeclaration( (yyvsp[(1) - (3)].ival),VAR,0,(yyvsp[(3) - (3)].ival),0 );
+							insererDeclaration( (yyvsp[(1) - (3)].ival),VAR,topRegion(),(yyvsp[(3) - (3)].ival),0 );
 							(yyval.ival) = (yyvsp[(3) - (3)].ival);
 							}
     break;
@@ -1865,7 +1865,7 @@ yyreduce:
 /* Line 1806 of yacc.c  */
 #line 143 "projet.y"
     {
-							insererDeclaration( (yyvsp[(1) - (3)].ival),VAR,0,(yyvsp[(3) - (3)].ival),0 );
+							insererDeclaration( (yyvsp[(1) - (3)].ival),VAR,topRegion(),(yyvsp[(3) - (3)].ival),0 );
 							(yyval.ival) = (yyvsp[(3) - (3)].ival);
 							}
     break;
@@ -1874,7 +1874,7 @@ yyreduce:
 
 /* Line 1806 of yacc.c  */
 #line 150 "projet.y"
-    { niveauImbrication++; }
+    { niveauImbrication++;empileRegion(insererRegion( 0,niveauImbrication,NULL )); }
     break;
 
   case 35:
@@ -1882,484 +1882,491 @@ yyreduce:
 /* Line 1806 of yacc.c  */
 #line 150 "projet.y"
     {
-			int description = ajoute_Proc((yyvsp[(3) - (5)].ival), getBuf()); buffer_clear();
-			int region = insererRegion( 0,niveauImbrication,(yyvsp[(5) - (5)].noeudval) );
-			insererDeclaration( (yyvsp[(2) - (5)].ival),PROC,0,description,region );
+			int description = ajoute_Proc((yyvsp[(3) - (5)].ival), getBuf());
+			buffer_clear();
+			int region = topRegion(); // TESTER SI -1
+			TblRegions[region].tree = (yyvsp[(5) - (5)].noeudval);
 			niveauImbrication--;
+			depileRegion();
+			insererDeclaration( (yyvsp[(2) - (5)].ival),PROC,topRegion(),description,region );
 			}
     break;
 
   case 36:
 
 /* Line 1806 of yacc.c  */
-#line 159 "projet.y"
-    { niveauImbrication++; }
+#line 162 "projet.y"
+    { niveauImbrication++;empileRegion(insererRegion( 0,niveauImbrication,NULL )); }
     break;
 
   case 37:
 
 /* Line 1806 of yacc.c  */
-#line 159 "projet.y"
+#line 162 "projet.y"
     {
-			int description = ajoute_Func((yyvsp[(5) - (7)].ival), (yyvsp[(3) - (7)].ival),getBuf()); buffer_clear();
-			int region = insererRegion( 0,niveauImbrication,(yyvsp[(7) - (7)].noeudval) );
-			insererDeclaration( (yyvsp[(2) - (7)].ival),FUNC,0,description,region );
+			int description = ajoute_Func((yyvsp[(5) - (7)].ival), (yyvsp[(3) - (7)].ival),getBuf());
+			buffer_clear();
+			int region = topRegion(); // TESTER SI -1
+			TblRegions[region].tree = (yyvsp[(7) - (7)].noeudval);
 			niveauImbrication--;
+			depileRegion();
+			//printf("La fonction est dans %i et correspond à %i\n",topRegion(),region);
+			insererDeclaration( (yyvsp[(2) - (7)].ival),FUNC,topRegion(),description,region ); // TESTER SI topRegion-1
 			}
     break;
 
   case 38:
 
 /* Line 1806 of yacc.c  */
-#line 168 "projet.y"
+#line 175 "projet.y"
     {(yyval.ival)=(yyvsp[(2) - (3)].ival);}
     break;
 
   case 39:
 
 /* Line 1806 of yacc.c  */
-#line 169 "projet.y"
+#line 176 "projet.y"
     {(yyval.ival)=0;}
     break;
 
   case 40:
 
 /* Line 1806 of yacc.c  */
-#line 173 "projet.y"
+#line 180 "projet.y"
     {(yyval.ival)=1;}
     break;
 
   case 41:
 
 /* Line 1806 of yacc.c  */
-#line 174 "projet.y"
+#line 181 "projet.y"
     {(yyval.ival)=(yyvsp[(1) - (3)].ival)+1;}
     break;
 
   case 42:
 
 /* Line 1806 of yacc.c  */
-#line 178 "projet.y"
+#line 185 "projet.y"
     { buffer_ajoute2((yyvsp[(1) - (3)].ival),(yyvsp[(3) - (3)].ival));}
     break;
 
   case 43:
 
 /* Line 1806 of yacc.c  */
-#line 184 "projet.y"
+#line 191 "projet.y"
     {(yyval.noeudval) = (yyvsp[(1) - (1)].noeudval);}
     break;
 
   case 44:
 
 /* Line 1806 of yacc.c  */
-#line 185 "projet.y"
+#line 192 "projet.y"
     {(yyval.noeudval) = (yyvsp[(1) - (1)].noeudval);}
     break;
 
   case 45:
 
 /* Line 1806 of yacc.c  */
-#line 186 "projet.y"
+#line 193 "projet.y"
     {(yyval.noeudval) = (yyvsp[(1) - (1)].noeudval);}
     break;
 
   case 46:
 
 /* Line 1806 of yacc.c  */
-#line 187 "projet.y"
+#line 194 "projet.y"
     {(yyval.noeudval) = (yyvsp[(1) - (1)].noeudval);}
     break;
 
   case 47:
 
 /* Line 1806 of yacc.c  */
-#line 188 "projet.y"
+#line 195 "projet.y"
     {(yyval.noeudval) = creerNoeud( T_VIDE );}
     break;
 
   case 48:
 
 /* Line 1806 of yacc.c  */
-#line 189 "projet.y"
+#line 196 "projet.y"
     {(yyval.noeudval) = ajouterFils(creerNoeud( T_RETOURNE ),(yyvsp[(2) - (2)].noeudval));}
     break;
 
   case 49:
 
 /* Line 1806 of yacc.c  */
-#line 193 "projet.y"
+#line 200 "projet.y"
     { (yyval.noeudval) = creerNoeud( T_VIDE ); }
     break;
 
   case 50:
 
 /* Line 1806 of yacc.c  */
-#line 194 "projet.y"
+#line 201 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 51:
 
 /* Line 1806 of yacc.c  */
-#line 198 "projet.y"
+#line 205 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud_i( T_APPEL,(yyvsp[(1) - (2)].ival) ),(yyvsp[(2) - (2)].noeudval)); }
     break;
 
   case 52:
 
 /* Line 1806 of yacc.c  */
-#line 202 "projet.y"
+#line 209 "projet.y"
     { (yyval.noeudval) = (yyvsp[(2) - (3)].noeudval); }
     break;
 
   case 53:
 
 /* Line 1806 of yacc.c  */
-#line 205 "projet.y"
-    {(yyval.noeudval)=NULL;}
+#line 213 "projet.y"
+    { (yyval.noeudval)=NULL; }
     break;
 
   case 54:
 
 /* Line 1806 of yacc.c  */
-#line 206 "projet.y"
+#line 214 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 55:
 
 /* Line 1806 of yacc.c  */
-#line 207 "projet.y"
+#line 215 "projet.y"
     { (yyval.noeudval) = ajouterFrere( (yyvsp[(1) - (3)].noeudval),(yyvsp[(3) - (3)].noeudval) ); }
     break;
 
   case 56:
 
 /* Line 1806 of yacc.c  */
-#line 211 "projet.y"
+#line 219 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 57:
 
 /* Line 1806 of yacc.c  */
-#line 215 "projet.y"
+#line 223 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud(T_SI), ajouterFrere( (yyvsp[(2) - (7)].noeudval),ajouterFrere( (yyvsp[(4) - (7)].noeudval),(yyvsp[(6) - (7)].noeudval) ) ) ); }
     break;
 
   case 58:
 
 /* Line 1806 of yacc.c  */
-#line 216 "projet.y"
+#line 224 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud(T_SI), ajouterFrere( (yyvsp[(2) - (5)].noeudval),(yyvsp[(4) - (5)].noeudval))); }
     break;
 
   case 59:
 
 /* Line 1806 of yacc.c  */
-#line 220 "projet.y"
+#line 228 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud(T_TANTQUE),ajouterFrere( (yyvsp[(2) - (5)].noeudval), (yyvsp[(4) - (5)].noeudval) )); }
     break;
 
   case 60:
 
 /* Line 1806 of yacc.c  */
-#line 224 "projet.y"
+#line 232 "projet.y"
     { (yyval.noeudval) =  ajouterFils(creerNoeud( T_AFFECT ),ajouterFrere((yyvsp[(1) - (3)].noeudval), (yyvsp[(3) - (3)].noeudval) )); }
     break;
 
   case 61:
 
 /* Line 1806 of yacc.c  */
-#line 229 "projet.y"
-    { (yyval.noeudval) = ajouterFils(creerNoeud_i( T_VAR,(yyvsp[(1) - (2)].ival) ),(yyvsp[(2) - (2)].noeudval)); }
+#line 237 "projet.y"
+    { (yyval.noeudval) = ajouterFils(creerNoeud_i( T_VAR,(yyvsp[(1) - (2)].ival) ),(yyvsp[(2) - (2)].noeudval)); associationNom( (yyvsp[(1) - (2)].ival) );  }
     break;
 
   case 62:
 
 /* Line 1806 of yacc.c  */
-#line 233 "projet.y"
+#line 241 "projet.y"
     { (yyval.noeudval) = NULL; }
     break;
 
   case 63:
 
 /* Line 1806 of yacc.c  */
-#line 234 "projet.y"
+#line 242 "projet.y"
     { (yyval.noeudval) = ajouterFrere( ajouterFils(creerNoeud( T_TABLE_ELEM ),(yyvsp[(2) - (4)].noeudval)),(yyvsp[(4) - (4)].noeudval) ); }
     break;
 
   case 64:
 
 /* Line 1806 of yacc.c  */
-#line 235 "projet.y"
+#line 243 "projet.y"
     { (yyval.noeudval) = ajouterFrere((yyvsp[(1) - (2)].noeudval),(yyvsp[(2) - (2)].noeudval)); }
     break;
 
   case 65:
 
 /* Line 1806 of yacc.c  */
-#line 239 "projet.y"
+#line 247 "projet.y"
     { (yyval.noeudval) = ajouterFils( creerNoeud( T_INDICE ),(yyvsp[(1) - (1)].noeudval) ); }
     break;
 
   case 66:
 
 /* Line 1806 of yacc.c  */
-#line 240 "projet.y"
+#line 248 "projet.y"
     { (yyval.noeudval) = ajouterFrere( ajouterFils(creerNoeud( T_INDICE ),(yyvsp[(1) - (3)].noeudval)),(yyvsp[(3) - (3)].noeudval) ); }
     break;
 
   case 67:
 
 /* Line 1806 of yacc.c  */
-#line 244 "projet.y"
+#line 252 "projet.y"
     { (yyval.noeudval) = creerNoeud_i( T_STRUCT_ELEM,(yyvsp[(2) - (2)].ival)); }
     break;
 
   case 68:
 
 /* Line 1806 of yacc.c  */
-#line 245 "projet.y"
+#line 253 "projet.y"
     { (yyval.noeudval) = ajouterFrere( creerNoeud_i( T_STRUCT_ELEM,(yyvsp[(2) - (3)].ival) ),(yyvsp[(3) - (3)].noeudval) ); }
     break;
 
   case 69:
 
 /* Line 1806 of yacc.c  */
-#line 249 "projet.y"
+#line 257 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 70:
 
 /* Line 1806 of yacc.c  */
-#line 250 "projet.y"
+#line 258 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 71:
 
 /* Line 1806 of yacc.c  */
-#line 251 "projet.y"
+#line 259 "projet.y"
     { (yyval.noeudval) = creerNoeud_c( T_CHAR,(yyvsp[(1) - (1)].cval) ); }
     break;
 
   case 72:
 
 /* Line 1806 of yacc.c  */
-#line 252 "projet.y"
+#line 260 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 73:
 
 /* Line 1806 of yacc.c  */
-#line 256 "projet.y"
+#line 264 "projet.y"
     { (yyval.noeudval) = creerNoeud_s( T_CHAINE,(yyvsp[(1) - (1)].sval) ); }
     break;
 
   case 74:
 
 /* Line 1806 of yacc.c  */
-#line 257 "projet.y"
+#line 265 "projet.y"
     { (yyval.noeudval) = ajouterFils( creerNoeud( T_CONCAT ),ajouterFrere( (yyvsp[(1) - (3)].noeudval),creerNoeud_s( T_CHAINE, (yyvsp[(3) - (3)].sval)) )); }
     break;
 
   case 75:
 
 /* Line 1806 of yacc.c  */
-#line 261 "projet.y"
+#line 269 "projet.y"
     { (yyval.noeudval) = ajouterFils( creerNoeud( T_PLUS ), ajouterFrere( (yyvsp[(1) - (3)].noeudval),(yyvsp[(3) - (3)].noeudval) ) ); }
     break;
 
   case 76:
 
 /* Line 1806 of yacc.c  */
-#line 262 "projet.y"
+#line 270 "projet.y"
     { (yyval.noeudval) = ajouterFils( creerNoeud( T_MOINS ), ajouterFrere( (yyvsp[(1) - (3)].noeudval),(yyvsp[(3) - (3)].noeudval) ) ); }
     break;
 
   case 77:
 
 /* Line 1806 of yacc.c  */
-#line 263 "projet.y"
+#line 271 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 78:
 
 /* Line 1806 of yacc.c  */
-#line 267 "projet.y"
+#line 275 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud( T_MULT ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) )); }
     break;
 
   case 79:
 
 /* Line 1806 of yacc.c  */
-#line 268 "projet.y"
-    { (yyval.noeudval) =  ajouterFils(creerNoeud( T_DIV ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) )); }
+#line 276 "projet.y"
+    { (yyval.noeudval) = ajouterFils(creerNoeud( T_DIV ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) )); }
     break;
 
   case 80:
 
 /* Line 1806 of yacc.c  */
-#line 269 "projet.y"
+#line 277 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 81:
 
 /* Line 1806 of yacc.c  */
-#line 273 "projet.y"
+#line 281 "projet.y"
     { (yyval.noeudval) =  (yyvsp[(2) - (3)].noeudval) ; }
     break;
 
   case 82:
 
 /* Line 1806 of yacc.c  */
-#line 274 "projet.y"
+#line 282 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 83:
 
 /* Line 1806 of yacc.c  */
-#line 275 "projet.y"
+#line 283 "projet.y"
     { (yyval.noeudval) = creerNoeud_i( T_CST_ENTIER,-1*(yyvsp[(2) - (2)].ival) ); }
     break;
 
   case 84:
 
 /* Line 1806 of yacc.c  */
-#line 276 "projet.y"
+#line 284 "projet.y"
     { (yyval.noeudval) = creerNoeud_f( T_CST_REEL, -1*(yyvsp[(2) - (2)].dval)); }
     break;
 
   case 85:
 
 /* Line 1806 of yacc.c  */
-#line 277 "projet.y"
+#line 285 "projet.y"
     { (yyval.noeudval) = creerNoeud_i( T_CST_ENTIER,(yyvsp[(1) - (1)].ival) ); }
     break;
 
   case 86:
 
 /* Line 1806 of yacc.c  */
-#line 278 "projet.y"
+#line 286 "projet.y"
     { (yyval.noeudval) = creerNoeud_f( T_CST_REEL,(yyvsp[(1) - (1)].dval) ); }
     break;
 
   case 87:
 
 /* Line 1806 of yacc.c  */
-#line 279 "projet.y"
+#line 287 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 88:
 
 /* Line 1806 of yacc.c  */
-#line 284 "projet.y"
-    { (yyval.noeudval) =  ajouterFils(creerNoeud( T_AND ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) ));  }
+#line 292 "projet.y"
+    { (yyval.noeudval) = ajouterFils(creerNoeud( T_AND ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) ));  }
     break;
 
   case 89:
 
 /* Line 1806 of yacc.c  */
-#line 285 "projet.y"
-    { (yyval.noeudval) =  ajouterFils(creerNoeud( T_OR ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) ));  }
+#line 293 "projet.y"
+    { (yyval.noeudval) = ajouterFils(creerNoeud( T_OR ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) ));  }
     break;
 
   case 90:
 
 /* Line 1806 of yacc.c  */
-#line 286 "projet.y"
+#line 294 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 91:
 
 /* Line 1806 of yacc.c  */
-#line 290 "projet.y"
+#line 298 "projet.y"
     { (yyval.noeudval) = ajouterFils( creerNoeud( T_NOT ),(yyvsp[(2) - (2)].noeudval) );  }
     break;
 
   case 92:
 
 /* Line 1806 of yacc.c  */
-#line 291 "projet.y"
+#line 299 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 93:
 
 /* Line 1806 of yacc.c  */
-#line 295 "projet.y"
+#line 303 "projet.y"
     { (yyval.noeudval) = (yyvsp[(2) - (3)].noeudval); }
     break;
 
   case 94:
 
 /* Line 1806 of yacc.c  */
-#line 296 "projet.y"
+#line 304 "projet.y"
     { (yyval.noeudval) = creerNoeud_i( T_BOOL,1 ); }
     break;
 
   case 95:
 
 /* Line 1806 of yacc.c  */
-#line 297 "projet.y"
+#line 305 "projet.y"
     { (yyval.noeudval) = creerNoeud_i( T_BOOL,0 ); }
     break;
 
   case 96:
 
 /* Line 1806 of yacc.c  */
-#line 298 "projet.y"
+#line 306 "projet.y"
     { (yyval.noeudval) = (yyvsp[(1) - (1)].noeudval); }
     break;
 
   case 97:
 
 /* Line 1806 of yacc.c  */
-#line 303 "projet.y"
+#line 311 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud( T_INF ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) )); }
     break;
 
   case 98:
 
 /* Line 1806 of yacc.c  */
-#line 304 "projet.y"
+#line 312 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud( T_INF_EGAL ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) )); }
     break;
 
   case 99:
 
 /* Line 1806 of yacc.c  */
-#line 305 "projet.y"
+#line 313 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud( T_SUP ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) )); }
     break;
 
   case 100:
 
 /* Line 1806 of yacc.c  */
-#line 306 "projet.y"
+#line 314 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud( T_SUP_EGAL ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) )); }
     break;
 
   case 101:
 
 /* Line 1806 of yacc.c  */
-#line 307 "projet.y"
+#line 315 "projet.y"
     { (yyval.noeudval) = ajouterFils(creerNoeud( T_EGAL ),ajouterFrere( (yyvsp[(1) - (3)].noeudval) , (yyvsp[(3) - (3)].noeudval) )); }
     break;
 
 
 
 /* Line 1806 of yacc.c  */
-#line 2363 "y.tab.c"
+#line 2370 "y.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2590,7 +2597,7 @@ yyreturn:
 
 
 /* Line 2067 of yacc.c  */
-#line 310 "projet.y"
+#line 318 "projet.y"
 
 
 int main(int argc, char* argv[]){
@@ -2602,15 +2609,16 @@ int main(int argc, char* argv[]){
 	initTableRepType();
 	initRegions();
 	buffer_clear();
+	initPileRegion();
 	
 	yyparse(); // Lancement de lex/yacc
 
 	printf("\n\n");
 
-	//afficheTableLexico();
-	//afficher_Tbl_Type();
+	afficheTableLexico();
 	afficherTblDeclaration();
-	afficherTblRegions();
+	//afficher_Tbl_Type();
+	//afficherTblRegions();
 	//affiche(Table_region);
 	printf("\n\n");
 

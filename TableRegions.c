@@ -2,11 +2,9 @@
 #include <stdlib.h>
 #include "TableRegions.h"
 #include "Arbre.h"
-#define MAXR 5
 
 
-lignRegion TblRegions[MAXR];
-int compteur=0;
+int compteur=1;
 
 void initRegions(){
 	int i;

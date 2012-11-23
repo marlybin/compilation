@@ -1,6 +1,8 @@
 #ifndef REGION_H
 #define REGION_H
 
+#define MAXR 5
+
 #include "Arbre.h"
 
 
@@ -10,6 +12,7 @@ typedef struct lignRegion{
     arbre* tree;
 }lignRegion;
 
+lignRegion TblRegions[MAXR];
 
 void initRegions();
 void afficherTblRegions();
