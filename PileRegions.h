@@ -1,28 +1,15 @@
 #ifndef PILEREGIONS_H
 #define PILEREGIONS_H
 
+#define MAXREGION 20
 
-typedef struct Pile Pile;
+int PileRegion[MAXREGION];
 
-struct Pile{
-    int info;
-    struct Pile* precedent;
-    struct Pile* suivant;
-};
+void initPile();
+void empile(int n);
+void depile();
+int top();
 
-Pile* Table_region;
-//Pile* Table_inter;
-
-// cree une pile vide
-Pile *initPile(); 
-
-//empile a->info dans la pile d
-void empile(Pile* d, int n); 
-
-//depile p jusqu'au dernier element de la pile
-Pile* depile(Pile * p);
-
-//affiche les elements de la pile a partir de l'element p
-void affiche(Pile* p); 
+void affichePileRegion();
 
 #endif

@@ -107,7 +107,7 @@ liste_dimensions :
 		;
 				
 une_dimension : 
-		CSTE_ENTIERE POINT_POINT  CSTE_ENTIERE	{buffer_ajoute2($1,$3);}
+		CSTE_ENTIERE POINT_POINT  CSTE_ENTIERE	{ buffer_ajoute2($1,$3); }
 		;
 
 liste_champs :

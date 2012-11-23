@@ -1778,7 +1778,7 @@ yyreduce:
 
 /* Line 1806 of yacc.c  */
 #line 110 "projet.y"
-    {buffer_ajoute2((yyvsp[(1) - (3)].ival),(yyvsp[(3) - (3)].ival));}
+    { buffer_ajoute2((yyvsp[(1) - (3)].ival),(yyvsp[(3) - (3)].ival)); }
     break;
 
   case 21:
