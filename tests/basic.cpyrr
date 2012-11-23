@@ -1,0 +1,27 @@
+program 
+
+
+
+
+	function rec return integer
+	begin
+		y:=10;
+	end;
+
+begin
+
+	while ( a<1 ) loop
+
+		a();
+
+	end loop;
+
+	if( a < 123 ) then 
+
+		x:= 4;
+	else
+
+		x:=6;
+	endif;
+
+end
